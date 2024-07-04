@@ -1,6 +1,9 @@
 package com.wipro.mbcms.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
+
+import org.springframework.cglib.core.Local;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +22,7 @@ public class InvoiceDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invoiceSequence")
 	@SequenceGenerator(name = "invoiceSequence", initialValue = 10000)
 	private int invoiceId;
-	private Date invoiceDate;
+	private LocalDate invoiceDate;
 	@NotNull
 	private double invoiceTax;
 	@DecimalMax(value = "5000")
@@ -38,10 +41,10 @@ public class InvoiceDetails {
 	public void setInvoiceId(int invoiceId) {
 		this.invoiceId = invoiceId;
 	}
-	public Date getInvoiceDate() {
+	public LocalDate getInvoiceDate() {
 		return invoiceDate;
 	}
-	public void setInvoiceDate(Date invoiceDate) {
+	public void setInvoiceDate(LocalDate invoiceDate) {
 		this.invoiceDate = invoiceDate;
 	}
 	public double getInvoiceTax() {
@@ -86,7 +89,7 @@ public class InvoiceDetails {
 	public void setPatient(Patients patient) {
 		this.patient = patient;
 	}
-	public InvoiceDetails(int invoiceId, Date invoiceDate, @NotNull double invoiceTax,
+	public InvoiceDetails(int invoiceId, LocalDate invoiceDate, @NotNull double invoiceTax,
 			@DecimalMax("5000") @DecimalMin("1000") double consultationFee, double diagnoticsTestsFee,
 			double diagnoticsScanFee, double invoiceTotalAmount, double totalBillAmount, Patients patient) {
 		super();
