@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Pattern;
 public class InsuranceCompany {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companySequence")
-	@SequenceGenerator(name = "companySequence", initialValue = 50)
+	@SequenceGenerator(name = "companySequence", initialValue = 1000)
 	private int companyId;
 	@NotNull
 	private String companyName;
