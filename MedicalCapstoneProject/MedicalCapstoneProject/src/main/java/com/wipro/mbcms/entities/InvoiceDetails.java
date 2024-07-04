@@ -1,7 +1,10 @@
 package com.wipro.mbcms.entities;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.Date;
+=======
+>>>>>>> bec26cdff4d09065301db8960e6031fb53bb5b68
 
 import org.springframework.cglib.core.Local;
 
@@ -20,7 +23,7 @@ import jakarta.validation.constraints.NotNull;
 public class InvoiceDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invoiceSequence")
-	@SequenceGenerator(name = "invoiceSequence", initialValue = 10000)
+	@SequenceGenerator(name = "invoiceSequence", initialValue = 100000)
 	private int invoiceId;
 	private LocalDate invoiceDate;
 	@NotNull
@@ -28,8 +31,8 @@ public class InvoiceDetails {
 	@DecimalMax(value = "5000")
 	@DecimalMin(value = "1000") 
 	private double consultationFee;
-	private double diagnoticsTestsFee;
-	private double diagnoticsScanFee;
+	private double diagnosticsTestsFee;
+	private double diagnosticsScanFee;
 	private double invoiceTotalAmount;
 	private double totalBillAmount;
 	@OneToOne
@@ -59,17 +62,17 @@ public class InvoiceDetails {
 	public void setConsultationFee(double consultationFee) {
 		this.consultationFee = consultationFee;
 	}
-	public double getDiagnoticsTestsFee() {
-		return diagnoticsTestsFee;
+	public double getDiagnosticsTestsFee() {
+		return diagnosticsTestsFee;
 	}
-	public void setDiagnoticsTestsFee(double diagnoticsTestsFee) {
-		this.diagnoticsTestsFee = diagnoticsTestsFee;
+	public void setDiagnosticsTestsFee(double diagnosticsTestsFee) {
+		this.diagnosticsTestsFee = diagnosticsTestsFee;
 	}
 	public double getDiagnoticsScanFee() {
-		return diagnoticsScanFee;
+		return diagnosticsScanFee;
 	}
-	public void setDiagnoticsScanFee(double diagnoticsScanFee) {
-		this.diagnoticsScanFee = diagnoticsScanFee;
+	public void setDiagnoticsScanFee(double diagnosticsScanFee) {
+		this.diagnosticsScanFee = diagnosticsScanFee;
 	}
 	public double getInvoiceTotalAmount() {
 		return invoiceTotalAmount;
@@ -90,15 +93,20 @@ public class InvoiceDetails {
 		this.patient = patient;
 	}
 	public InvoiceDetails(int invoiceId, LocalDate invoiceDate, @NotNull double invoiceTax,
+<<<<<<< HEAD
 			@DecimalMax("5000") @DecimalMin("1000") double consultationFee, double diagnoticsTestsFee,
 			double diagnoticsScanFee, double invoiceTotalAmount, double totalBillAmount, Patients patient) {
+=======
+			@DecimalMax("5000") @DecimalMin("1000") double consultationFee, double diagnosticsTestsFee,
+			double diagnosticsScanFee, double invoiceTotalAmount, double totalBillAmount, Patients patient) {
+>>>>>>> bec26cdff4d09065301db8960e6031fb53bb5b68
 		super();
 		this.invoiceId = invoiceId;
 		this.invoiceDate = invoiceDate;
 		this.invoiceTax = invoiceTax;
 		this.consultationFee = consultationFee;
-		this.diagnoticsTestsFee = diagnoticsTestsFee;
-		this.diagnoticsScanFee = diagnoticsScanFee;
+		this.diagnosticsTestsFee = diagnosticsTestsFee;
+		this.diagnosticsScanFee = diagnosticsScanFee;
 		this.invoiceTotalAmount = invoiceTotalAmount;
 		this.totalBillAmount = totalBillAmount;
 		this.patient = patient;
@@ -109,8 +117,8 @@ public class InvoiceDetails {
 	@Override
 	public String toString() {
 		return "InvoiceDetails [invoiceId=" + invoiceId + ", invoiceDate=" + invoiceDate + ", invoiceTax=" + invoiceTax
-				+ ", consultationFee=" + consultationFee + ", diagnoticsTestsFee=" + diagnoticsTestsFee
-				+ ", diagnoticsScanFee=" + diagnoticsScanFee + ", invoiceTotalAmount=" + invoiceTotalAmount
+				+ ", consultationFee=" + consultationFee + ", diagnoticsTestsFee=" + diagnosticsTestsFee
+				+ ", diagnosticsScanFee=" + diagnosticsScanFee + ", invoiceTotalAmount=" + invoiceTotalAmount
 				+ ", totalBillAmount=" + totalBillAmount + ", patient=" + patient + "]";
 	}
 	

@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Pattern;
 public class HealthcareProvider {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "providerSequence")
-	@SequenceGenerator(name = "providerSequence", initialValue = 100)
+	@SequenceGenerator(name = "providerSequence", initialValue = 1000)
 	private int providerId;
 	@NotBlank
 	private String providerName;
