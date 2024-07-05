@@ -13,13 +13,6 @@ public interface PatientsService {
 	public Patients updatePatients(PatientsDTO patientsDto);
 
 	public String deletPatients(long patientId);
-
-	// public Patients deletePatinetById();
-
-//	public Patients addPatients(PatientsDTO patientsdto);
-//	public Patients updatepatients(PatientsDTO patientsdto);
-//	public void deletePatients(long patientId);
-//	public PatientsDTO getPatientByName(String patientName);
-//	public List<Patients> getAllPatients();
+	
 
 }

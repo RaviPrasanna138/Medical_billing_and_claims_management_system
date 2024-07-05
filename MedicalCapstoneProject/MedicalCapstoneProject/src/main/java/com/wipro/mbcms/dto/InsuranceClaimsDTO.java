@@ -5,9 +5,7 @@ import com.wipro.mbcms.entities.Patients;
 
 
 public class InsuranceClaimsDTO {
-<<<<<<< HEAD
-}
-=======
+
 
 	private long claimId;
 
@@ -92,4 +90,3 @@ public class InsuranceClaimsDTO {
 	}
 
 }
->>>>>>> 4d906911007d5dee9f8d1ac16b753d663e8582f3
