@@ -1,12 +1,14 @@
 package com.wipro.mbcms.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.PatientsDTO;
 import com.wipro.mbcms.entities.Patients;
 import com.wipro.mbcms.repositories.PatientRepository;
+
+@Service
 public class PatientsServiceImp implements PatientsService {
 	@Autowired
 	PatientRepository repo;
@@ -29,8 +31,6 @@ public class PatientsServiceImp implements PatientsService {
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
 
 		return repo.save(patient);
-
-		// return null;
 	}
 
 	@Override
@@ -45,7 +45,6 @@ public class PatientsServiceImp implements PatientsService {
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
 
-		
 		return repo.save(patient);
 
 	}

@@ -7,7 +7,7 @@ import com.wipro.mbcms.entities.InvoiceDetails;
 
 public interface IInvoiceDetailsService {
 
-	public InvoiceDetails addInvoice(InvoiceDetailsDTO detailsdto, long patientId);
+	public InvoiceDetails addInvoice(InvoiceDetailsDTO detailsDto, long patientId);
 
 	public List<InvoiceDetails> getAllInvoices();
 

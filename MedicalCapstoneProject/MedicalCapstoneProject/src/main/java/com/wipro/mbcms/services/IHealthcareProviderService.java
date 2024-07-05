@@ -7,9 +7,9 @@ import com.wipro.mbcms.entities.HealthcareProvider;
 
 public interface IHealthcareProviderService {
 
-	public HealthcareProvider addProvider(HealthcareProviderDTO providerdto);
+	public HealthcareProvider addProvider(HealthcareProviderDTO providerDto);
 
-	public HealthcareProvider updateProvider(HealthcareProviderDTO providerdto);
+	public HealthcareProvider updateProvider(HealthcareProviderDTO providerDto);
 
 	public List<HealthcareProvider> getAllProviders();
 

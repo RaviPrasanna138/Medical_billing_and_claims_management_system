@@ -6,9 +6,9 @@ import com.wipro.mbcms.dto.InsurancePlansDTO;
 import com.wipro.mbcms.entities.InsurancePlans;
 
 public interface IInsurancePlansService {
-    public InsurancePlans addInsurancePlan(InsurancePlansDTO plansdto,String companyName);
+    public InsurancePlans addInsurancePlan(InsurancePlansDTO plansDto,String companyName);
 	
-	public InsurancePlans updateInsurancePlans(InsurancePlansDTO plansdto);
+	public InsurancePlans updateInsurancePlans(InsurancePlansDTO plansDto);
 	 
 	public void deleteInsurancePlan(int planId);
 	

@@ -3,13 +3,14 @@ package com.wipro.mbcms.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.InvoiceDetailsDTO;
 import com.wipro.mbcms.entities.InvoiceDetails;
 import com.wipro.mbcms.entities.Patients;
 import com.wipro.mbcms.repositories.InvoiceDetailsRepository;
 import com.wipro.mbcms.repositories.PatientRepository;
-
+@Service
 public class InvoiceDetailsServiceImp implements IInvoiceDetailsService {
 
 	@Autowired
@@ -19,16 +20,16 @@ public class InvoiceDetailsServiceImp implements IInvoiceDetailsService {
 	private InvoiceDetailsRepository invoiceRepo;
 
 	@Override
-	public InvoiceDetails addInvoice(InvoiceDetailsDTO detailsdto, long patientId) {
+	public InvoiceDetails addInvoice(InvoiceDetailsDTO detailsDto, long patientId) {
 		InvoiceDetails details = new InvoiceDetails();
 		Patients patients = patientRepo.findById(patientId).orElse(new Patients());
-		details.setInvoiceDate(detailsdto.getInvoiceDate());
-		details.setInvoiceTax(detailsdto.getInvoiceTax());
-		details.setConsultationFee(detailsdto.getConsultationFee());
-		details.setDiagnosticsTestsFee(detailsdto.getDiagnosticsTestsFee());
-		details.setDiagnoticsScanFee(detailsdto.getDiagnoticsScanFee());
-		details.setInvoiceTotalAmount(detailsdto.getInvoiceTotalAmount());
-		details.setTotalBillAmount(detailsdto.getTotalBillAmount());
+		details.setInvoiceDate(detailsDto.getInvoiceDate());
+		details.setInvoiceTax(detailsDto.getInvoiceTax());
+		details.setConsultationFee(detailsDto.getConsultationFee());
+		details.setDiagnosticsTestsFee(detailsDto.getDiagnosticsTestsFee());
+		details.setDiagnoticsScanFee(detailsDto.getDiagnoticsScanFee());
+		details.setInvoiceTotalAmount(detailsDto.getInvoiceTotalAmount());
+		details.setTotalBillAmount(detailsDto.getTotalBillAmount());
 		details.setPatient(patients);
 		return invoiceRepo.save(details);
 	}

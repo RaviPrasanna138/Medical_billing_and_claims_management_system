@@ -6,9 +6,9 @@ import com.wipro.mbcms.dto.InsuranceCompanyDTO;
 import com.wipro.mbcms.entities.InsuranceCompany;
 
 public interface IInsuranceCompanyService {
-	public InsuranceCompany addCompany(InsuranceCompanyDTO companydto);
+	public InsuranceCompany addCompany(InsuranceCompanyDTO companyDto);
 
-	public InsuranceCompany updateCompany(InsuranceCompanyDTO companydto);
+	public InsuranceCompany updateCompany(InsuranceCompanyDTO companyDto);
 
 	public List<InsuranceCompany> getAllInsuranceCompanyDetails();
 

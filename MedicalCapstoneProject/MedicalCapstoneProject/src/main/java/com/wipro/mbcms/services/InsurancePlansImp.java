@@ -13,43 +13,43 @@ import com.wipro.mbcms.repositories.InsurancePlansRepository;
 @Service
 public class InsurancePlansImp implements IInsurancePlansService {
 	@Autowired
-	private InsurancePlansRepository repo;
+	private InsurancePlansRepository planRepo;
 	
 	@Autowired
-	private InsuranceCompanyRepository companyRepository;
+	private InsuranceCompanyRepository companyRepo;
 	@Override
-	public InsurancePlans addInsurancePlan(InsurancePlansDTO plansdto, String companyName) {
-		InsuranceCompany company= companyRepository.findByCompanyName(companyName).orElse(new InsuranceCompany());
+	public InsurancePlans addInsurancePlan(InsurancePlansDTO plansDto, String companyName) {
+		InsuranceCompany company= companyRepo.findByCompanyName(companyName).orElse(new InsuranceCompany());
 		InsurancePlans plans = new InsurancePlans();
-		plans.setPlanID(plansdto.getPlanID());
-		plans.setPlanName(plansdto.getPlanName());
-		plans.setPlanCoverAmount(plansdto.getPlanCoverAmount());
-		plans.setPlanDetails(plansdto.getPlanDetails());
-		plans.setPlanType(plansdto.getPlanType());
-		return repo.save(plans);
+		plans.setPlanID(plansDto.getPlanID());
+		plans.setPlanName(plansDto.getPlanName());
+		plans.setPlanCoverAmount(plansDto.getPlanCoverAmount());
+		plans.setPlanDetails(plansDto.getPlanDetails());
+		plans.setPlanType(plansDto.getPlanType());
+		return planRepo.save(plans);
 	}
 
 	@Override
-	public InsurancePlans updateInsurancePlans(InsurancePlansDTO plansdto) {
+	public InsurancePlans updateInsurancePlans(InsurancePlansDTO plansDto) {
 		InsurancePlans plans = new InsurancePlans();
-		plans.setPlanID(plansdto.getPlanID());
-		plans.setPlanName(plansdto.getPlanName());
-		plans.setPlanCoverAmount(plansdto.getPlanCoverAmount());
-		plans.setPlanDetails(plansdto.getPlanDetails());
-		plans.setPlanType(plansdto.getPlanType());
-		return repo.save(plans);
+		plans.setPlanID(plansDto.getPlanID());
+		plans.setPlanName(plansDto.getPlanName());
+		plans.setPlanCoverAmount(plansDto.getPlanCoverAmount());
+		plans.setPlanDetails(plansDto.getPlanDetails());
+		plans.setPlanType(plansDto.getPlanType());
+		return planRepo.save(plans);
 	}
 
 	@Override
 	public void deleteInsurancePlan(int planId) {
-		repo.deleteById(planId);
+		planRepo.deleteById(planId);
 
 
 	}
 
 	@Override
 	public List<InsurancePlans> getAllPlans() {
-		return repo.findAll();
+		return planRepo.findAll();
 	}
 
 }

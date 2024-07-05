@@ -12,38 +12,38 @@ import com.wipro.mbcms.repositories.InsuranceCompanyRepository;
 public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 
 	@Autowired
-	private InsuranceCompanyRepository repo;
+	private InsuranceCompanyRepository CompanyRepo;
 	@Override
-	public InsuranceCompany addCompany(InsuranceCompanyDTO companydto) {
+	public InsuranceCompany addCompany(InsuranceCompanyDTO companyDto) {
 		InsuranceCompany company= new InsuranceCompany();
-		company.setCompanyName(companydto.getCompanyName());
-		company.setCompanyContact(companydto.getCompanyContact());
-		company.setCompanyEmail(company.getCompanyEmail());
-		company.setCompanyPassword(companydto.getCompanyPassword());
-		return repo.save(company);
+		company.setCompanyName(companyDto.getCompanyName());
+		company.setCompanyContact(companyDto.getCompanyContact());
+		company.setCompanyEmail(companyDto.getCompanyEmail());
+		company.setCompanyPassword(companyDto.getCompanyPassword());
+		return CompanyRepo.save(company);
 	}
 
 	@Override
-	public InsuranceCompany updateCompany(InsuranceCompanyDTO companydto) {
+	public InsuranceCompany updateCompany(InsuranceCompanyDTO companyDto) {
 		InsuranceCompany company= new InsuranceCompany();
-		company.setCompanyId(companydto.getCompanyId());
-		company.setCompanyName(companydto.getCompanyName());
-		company.setCompanyContact(companydto.getCompanyContact());
-		company.setCompanyEmail(company.getCompanyEmail());
-		company.setCompanyPassword(companydto.getCompanyPassword());
-		return repo.save(company);
+		company.setCompanyId(companyDto.getCompanyId());
+		company.setCompanyName(companyDto.getCompanyName());
+		company.setCompanyContact(companyDto.getCompanyContact());
+		company.setCompanyEmail(companyDto.getCompanyEmail());
+		company.setCompanyPassword(companyDto.getCompanyPassword());
+		return CompanyRepo.save(company);
 	}
 
 	@Override
 	public List<InsuranceCompany> getAllInsuranceCompanyDetails() {
-		return repo.findAll();
+		return CompanyRepo.findAll();
 		
 		
 	}
 
 	@Override
 	public void deleteCompanyById(int companyId) {
-		repo.deleteById(companyId);
+		CompanyRepo.deleteById(companyId);
 
 	}
 
