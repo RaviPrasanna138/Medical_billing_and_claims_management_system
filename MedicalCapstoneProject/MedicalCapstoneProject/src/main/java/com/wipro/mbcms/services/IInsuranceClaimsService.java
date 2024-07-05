@@ -1,6 +1,7 @@
 package com.wipro.mbcms.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.wipro.mbcms.dto.InsuranceClaimsDTO;
 import com.wipro.mbcms.entities.InsuranceClaims;
@@ -15,6 +16,6 @@ public interface IInsuranceClaimsService {
 
 	public InsuranceClaims getByPatientId(long claimId);
 
-	public List<InsuranceClaims> getClaimByPatientName(String patientName);
+//	public List<InsuranceClaims> getClaimByPatientName(String patientName);
 
 }

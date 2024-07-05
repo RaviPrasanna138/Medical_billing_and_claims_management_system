@@ -27,8 +27,6 @@ public class PatientsRestController {
 
 	Logger logger = LoggerFactory.getLogger(PatientsRestController.class);
 
-	@Autowired
-	private IInsurancePlansService planService;
 
 	@Autowired
 	private IPatientsService service;

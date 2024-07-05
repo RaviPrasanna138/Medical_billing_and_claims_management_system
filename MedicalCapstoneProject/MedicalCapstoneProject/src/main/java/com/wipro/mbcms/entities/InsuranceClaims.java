@@ -1,5 +1,6 @@
 package com.wipro.mbcms.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class InsuranceClaims {
 	@OneToOne
 	@JoinColumn(name = "patientId")
 	private Patients patient;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "planId")
 	private InsurancePlans plans;
 

@@ -18,39 +18,36 @@ import com.wipro.mbcms.services.IInsuranceClaimsService;
 @RestController
 @RequestMapping("/api/InsuranceClaims")
 public class InsuranceClaimsRestController {
-	
+
 	@Autowired
 	private IInsuranceClaimsService claimService;
-	
-	//add , update ,  get all , get by id 
-	
+
 	@GetMapping("/getallclaims")
 	public List<InsuranceClaims> getAllClaims() {
 		return claimService.getAllInsuranceClaims();
 
 	}
-	
+
 	@PostMapping("/add/newclaim/{patientName}/{planId}")
-	public InsuranceClaims insertNewClaim(@RequestBody InsuranceClaimsDTO claimDTO,@PathVariable String patientName,@PathVariable int planId) {
+	public InsuranceClaims insertNewClaim(@RequestBody InsuranceClaimsDTO claimDTO, @PathVariable String patientName,
+			@PathVariable int planId) {
 		System.out.println(patientName);
 		return claimService.addClaims(claimDTO, patientName, planId);
 	}
-	
 
 	@PutMapping("/update/claim/{claimId}")
 	public InsuranceClaims updateStatus(@RequestBody InsuranceClaimsDTO claimDTO, @PathVariable long claimId) {
 		return claimService.updateClaims(claimDTO, claimId);
 	}
-	
-	@GetMapping("/getclaims/{patientName}")
-	public List<InsuranceClaims> getClaimByCompanyName(@PathVariable String patientName)
-	{
-		return claimService.getClaimByPatientName(patientName);
+
+//	@GetMapping("/getclaims/{patientName}")
+//	public List<InsuranceClaims> getClaimByCompanyName(@PathVariable String patientName) {
+//		return claimService.getClaimByPatientName(patientName);
+//	}
+
+	@GetMapping("/getClaims/{patinetId}")
+	public InsuranceClaims getClaimbyId(@PathVariable Long patientId) {
+		return claimService.getByPatientId(patientId);
 	}
-	
-    @GetMapping("/getClaims/{patinetId}")
-    public InsuranceClaims getClaimbyId(@PathVariable Long patientId){
-    	return claimService.getByPatientId(patientId);
-    }
 
 }
