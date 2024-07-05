@@ -28,6 +28,9 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 	@Autowired
 	private InsuranceClaimsRepository insuranceRepo;
 
+
+	@Autowired
+
 	private InsurancePlansRepository plansRepo;
 
 	@Override
@@ -76,5 +79,21 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 //	public List<InsuranceClaims> getClaimByPatientName(String patientName) {
 //		return insuranceRepo.getClaimByPatientName(patientName);
 //	}
+//
+//	@Override
+//	public List<InsuranceClaims> getClaimByPatientName(String patientName) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+//	@Override
+//	public List<InsuranceClaims> getClaimByPatientName(String patientName) {
+//		
+//		return insuranceRepo.getClaimByPatientName(patientName);
+//	}
+
+
+
+	
 
 }

@@ -30,6 +30,17 @@ public class InsuranceClaims {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "planId")
 	private InsurancePlans plans;
+	
+	
+    private String patientName;
+
+	public String getPatientName() {
+		return patientName;
+	}
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
 
 	public long getClaimId() {
 		return claimId;
@@ -98,7 +109,9 @@ public class InsuranceClaims {
 	@Override
 	public String toString() {
 		return "InsuranceClaims [claimId=" + claimId + ", claimAmount=" + claimAmount + ", claimStatus=" + claimStatus
-				+ ", invoiceAmount=" + invoiceAmount + ", patient=" + patient + ", plans=" + plans + "]";
+				+ ", invoiceAmount=" + invoiceAmount + ", patient=" + patient + ", plans=" + plans + ", patientName="
+				+ patientName + "]";
 	}
+
 
 }

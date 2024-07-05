@@ -12,7 +12,12 @@ import com.wipro.mbcms.entities.InsuranceClaims;
 @Repository
 public interface InsuranceClaimsRepository extends JpaRepository<InsuranceClaims, Long> {
 	
+
 //	@Query("SELECT claim FROM InsuranceClaim claim WHERE claim.patient.patientName = ?1")
 //	public List<InsuranceClaims> getClaimByPatientName(String patientName);
+
+//	@Query("SELECT claim FROM InsuranceClaims WHERE claim.patientName= ?1")
+//	 List<InsuranceClaims> getClaimByPatientName(String patientName);
+
 
 }
