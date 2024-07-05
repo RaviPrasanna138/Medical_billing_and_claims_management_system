@@ -4,7 +4,7 @@ import java.util.List;
 import com.wipro.mbcms.dto.PatientsDTO;
 import com.wipro.mbcms.entities.Patients;
 
-public interface PatientsService {
+public interface IPatientsService {
 
 	public List<Patients> getAllPatients();
 

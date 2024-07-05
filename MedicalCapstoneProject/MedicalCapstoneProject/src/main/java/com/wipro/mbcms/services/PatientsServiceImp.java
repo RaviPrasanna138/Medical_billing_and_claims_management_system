@@ -9,7 +9,7 @@ import com.wipro.mbcms.entities.Patients;
 import com.wipro.mbcms.repositories.PatientRepository;
 
 @Service
-public class PatientsServiceImp implements PatientsService {
+public class PatientsServiceImp implements IPatientsService {
 	@Autowired
 	PatientRepository repo;
 
