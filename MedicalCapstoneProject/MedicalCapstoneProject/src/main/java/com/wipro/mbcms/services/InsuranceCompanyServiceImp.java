@@ -10,6 +10,14 @@ import com.wipro.mbcms.entities.InsuranceCompany;
 import com.wipro.mbcms.repositories.InsuranceCompanyRepository;
 @Service
 public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
+	
+	
+	@Override
+	public List<InsuranceCompany> getAllInsuranceCompanyDetails() {
+		return CompanyRepo.findAll();
+		
+		
+	}
 
 	@Autowired
 	private InsuranceCompanyRepository CompanyRepo;
@@ -34,12 +42,7 @@ public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 		return CompanyRepo.save(company);
 	}
 
-	@Override
-	public List<InsuranceCompany> getAllInsuranceCompanyDetails() {
-		return CompanyRepo.findAll();
-		
-		
-	}
+	
 
 	@Override
 	public void deleteCompanyById(int companyId) {
