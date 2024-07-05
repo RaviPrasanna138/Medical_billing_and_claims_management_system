@@ -18,7 +18,7 @@ import com.wipro.mbcms.entities.Patients;
 import com.wipro.mbcms.services.IAdminMedicalService;
 import com.wipro.mbcms.services.IHealthcareProviderService;
 import com.wipro.mbcms.services.IInsurancePlansService;
-import com.wipro.mbcms.services.PatientsService;
+import com.wipro.mbcms.services.IPatientsService;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -29,7 +29,9 @@ public class AdminMedicalRestController {
 	
 	private IHealthcareProviderService providerService;
 	
-	private PatientsService patientService;
+	private IInsuranceClaimService claimService;
+	
+	private IPatientsService patientService;
 	
 	private IInsurancePlansService planService;
 	
