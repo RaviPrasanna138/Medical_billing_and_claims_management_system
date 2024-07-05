@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wipro.mbcms.dto.AdminMedicalDTO;
 import com.wipro.mbcms.entities.AdminMedical;
 import com.wipro.mbcms.entities.HealthcareProvider;
+import com.wipro.mbcms.entities.InsuranceClaims;
 import com.wipro.mbcms.entities.InsurancePlans;
 import com.wipro.mbcms.entities.Patients;
 import com.wipro.mbcms.services.IAdminMedicalService;
 import com.wipro.mbcms.services.IHealthcareProviderService;
+import com.wipro.mbcms.services.IInsuranceClaimsService;
 import com.wipro.mbcms.services.IInsurancePlansService;
 import com.wipro.mbcms.services.IPatientsService;
 
@@ -29,7 +31,7 @@ public class AdminMedicalRestController {
 	
 	private IHealthcareProviderService providerService;
 	
-	private IInsuranceClaimService claimService;
+	private IInsuranceClaimsService claimService;
 	
 	private IPatientsService patientService;
 	
