@@ -12,4 +12,6 @@ public interface IInvoiceDetailsService {
 	public List<InvoiceDetails> getAllInvoices();
 
 	public InvoiceDetails getInvoiceById(int invoiceId);
+
+	public List<InvoiceDetails> getAllByPatientName(String patientName);
 }

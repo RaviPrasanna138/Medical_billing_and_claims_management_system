@@ -14,6 +14,6 @@ public interface IHealthcareProviderService {
 	public List<HealthcareProvider> getAllProviders();
 
 	public HealthcareProvider getProviderById(int providerId);
-	
+
 	public void deleteProviderById(int providerId);
 }
