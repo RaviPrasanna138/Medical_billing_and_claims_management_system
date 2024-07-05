@@ -37,7 +37,6 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 	@Override
 	public InsuranceClaims addClaims(InsuranceClaimsDTO claimDto, String patientName, int planId) {
 		Patients patients=patientRepo.findByPatientName(patientName).orElse(new Patients());
-		System.out.println(patients);
 		InsurancePlans plans=plansRepo.findById(planId).orElse(new InsurancePlans());
         InsuranceClaims claims=new InsuranceClaims();
         claims.setClaimAmount(claimDto.getClaimAmount());
@@ -70,7 +69,6 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 	
 	
 	public InsuranceClaims getByPatientId(long claimId) {
-		// TODO Auto-generated method stub
 		return insuranceRepo.getById(claimId);
 	}
 
@@ -85,4 +83,3 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 	
 
 }
-

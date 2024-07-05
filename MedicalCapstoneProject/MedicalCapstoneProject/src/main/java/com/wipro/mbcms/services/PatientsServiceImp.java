@@ -20,7 +20,7 @@ public class PatientsServiceImp implements IPatientsService {
 
 	@Override
 	public Patients addPatients(PatientsDTO patientsDto) {
-   
+
 		Patients patient = new Patients();
 		patient.setPatientName(patientsDto.getPatientName());
 		patient.setPatientPassword(patientsDto.getPatientPassword());
@@ -29,6 +29,8 @@ public class PatientsServiceImp implements IPatientsService {
 		patient.setPatientMobileNumber(patientsDto.getPatientMobileNumber());
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
+		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
+		patient.setInvoicedetails(patientsDto.getInvoicedetails());
 
 		return repo.save(patient);
 	}
@@ -44,7 +46,8 @@ public class PatientsServiceImp implements IPatientsService {
 		patient.setPatientMobileNumber(patientsDto.getPatientMobileNumber());
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
-
+		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
+		patient.setInvoicedetails(patientsDto.getInvoicedetails());
 		return repo.save(patient);
 
 	}
@@ -53,7 +56,7 @@ public class PatientsServiceImp implements IPatientsService {
 	public String deletPatients(long patientId) {
 		repo.deleteById(patientId);
 
-		return "one record affected " +patientId+" record deleted";
+		return "one record affected " + patientId + " record deleted";
 	}
 
 }
