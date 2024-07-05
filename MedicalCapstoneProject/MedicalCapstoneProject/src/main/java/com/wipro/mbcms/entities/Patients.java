@@ -1,5 +1,6 @@
 package com.wipro.mbcms.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.CascadeType;
@@ -24,17 +25,17 @@ public class Patients {
 	private String patientEmail;
 	private String patientPassword;
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
-	private Date patientDateOfBirth;
+	private LocalDate patientDateOfBirth;
 	@NotBlank
 	private String patientGender;
 	private long patientMobileNumber;
 	private String patientAddress;
 	@NotBlank
 	private String patientSymptoms;
-	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-	private InsuranceClaims insuranceClaim;
-	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-	private InvoiceDetails invoicedetails;
+//	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+//	private InsuranceClaims insuranceClaim;
+//	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+//	private InvoiceDetails invoicedetails;
 
 	private final static String role = "PATIENTS";
 
@@ -70,11 +71,11 @@ public class Patients {
 		this.patientPassword = patientPassword;
 	}
 
-	public Date getPatientDateOfBirth() {
+	public LocalDate getPatientDateOfBirth() {
 		return patientDateOfBirth;
 	}
 
-	public void setPatientDateOfBirth(Date patientDateOfBirth) {
+	public void setPatientDateOfBirth(LocalDate patientDateOfBirth) {
 		this.patientDateOfBirth = patientDateOfBirth;
 	}
 
@@ -110,28 +111,28 @@ public class Patients {
 		this.patientSymptoms = patientSymptoms;
 	}
 
-	public InsuranceClaims getInsuranceClaim() {
-		return insuranceClaim;
-	}
-
-	public void setInsuranceClaim(InsuranceClaims insuranceClaim) {
-		this.insuranceClaim = insuranceClaim;
-	}
-
-	public InvoiceDetails getInvoicedetails() {
-		return invoicedetails;
-	}
-
-	public void setInvoicedetails(InvoiceDetails invoicedetails) {
-		this.invoicedetails = invoicedetails;
-	}
+//	public InsuranceClaims getInsuranceClaim() {
+//		return insuranceClaim;
+//	}
+//
+//	public void setInsuranceClaim(InsuranceClaims insuranceClaim) {
+//		this.insuranceClaim = insuranceClaim;
+//	}
+//
+//	public InvoiceDetails getInvoicedetails() {
+//		return invoicedetails;
+//	}
+//
+//	public void setInvoicedetails(InvoiceDetails invoicedetails) {
+//		this.invoicedetails = invoicedetails;
+//	}
 
 	public static String getRole() {
 		return role;
 	}
 
 	public Patients(long patientId, @NotBlank String patientName, @Email String patientEmail, String patientPassword,
-			@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5") Date patientDateOfBirth,
+			@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5") LocalDate patientDateOfBirth,
 			@NotBlank String patientGender, long patientMobileNumber, String patientAddress,
 			@NotBlank String patientSymptoms, InsuranceClaims insuranceClaim, InvoiceDetails invoicedetails) {
 		super();
@@ -144,8 +145,8 @@ public class Patients {
 		this.patientMobileNumber = patientMobileNumber;
 		this.patientAddress = patientAddress;
 		this.patientSymptoms = patientSymptoms;
-		this.insuranceClaim = insuranceClaim;
-		this.invoicedetails = invoicedetails;
+//		this.insuranceClaim = insuranceClaim;
+//		this.invoicedetails = invoicedetails;
 	}
 
 	public Patients() {
@@ -157,8 +158,7 @@ public class Patients {
 		return "Patients [patientId=" + patientId + ", patientName=" + patientName + ", patientEmail=" + patientEmail
 				+ ", patientPassword=" + patientPassword + ", patientDateOfBirth=" + patientDateOfBirth
 				+ ", patientGender=" + patientGender + ", patientMobileNumber=" + patientMobileNumber
-				+ ", patientAddress=" + patientAddress + ", patientSymptoms=" + patientSymptoms + ", insuranceClaim="
-				+ insuranceClaim + ", invoicedetails=" + invoicedetails + "]";
+				+ ", patientAddress=" + patientAddress + ", patientSymptoms=" + patientSymptoms + "]";
 	}
 
 }

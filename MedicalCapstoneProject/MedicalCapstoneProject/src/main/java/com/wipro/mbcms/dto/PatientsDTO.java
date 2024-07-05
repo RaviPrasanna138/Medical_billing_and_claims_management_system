@@ -1,5 +1,6 @@
 package com.wipro.mbcms.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import com.wipro.mbcms.entities.InsuranceClaims;
@@ -10,20 +11,20 @@ public class PatientsDTO {
 	private long patientId;
 	private String patientName;
 	private String patientPassword;
-	private Date patientDateOfBirth;
+	private LocalDate patientDateOfBirth;
 	private String patientGender;
 	private long patientMobileNumber;
 	private String patientAddress;
 	private String patientSymptoms;
 	private String patientTreatment;
-	private InsuranceClaims insuranceClaim;
-	private InvoiceDetails invoicedetails;
+//	private InsuranceClaims insuranceClaim;
+//	private InvoiceDetails invoicedetails;
 
 	public PatientsDTO() {
 		super();
 	}
 
-	public PatientsDTO(long patientId, String patientName, String patientPassword, Date patientDateOfBirth,
+	public PatientsDTO(long patientId, String patientName, String patientPassword, LocalDate patientDateOfBirth,
 			String patientGender, long patientMobileNumber, String patientAddress, String patientSymptoms,
 			String patientTreatment, InsuranceClaims insuranceClaim, InvoiceDetails invoicedetails) {
 		super();
@@ -36,8 +37,8 @@ public class PatientsDTO {
 		this.patientAddress = patientAddress;
 		this.patientSymptoms = patientSymptoms;
 		this.patientTreatment = patientTreatment;
-		this.insuranceClaim = insuranceClaim;
-		this.invoicedetails = invoicedetails;
+//		this.insuranceClaim = insuranceClaim;
+//		this.invoicedetails = invoicedetails;
 	}
 
 	public long getPatientId() {
@@ -64,11 +65,11 @@ public class PatientsDTO {
 		this.patientPassword = patientPassword;
 	}
 
-	public Date getPatientDateOfBirth() {
+	public LocalDate getPatientDateOfBirth() {
 		return patientDateOfBirth;
 	}
 
-	public void setPatientDateOfBirth(Date patientDateOfBirth) {
+	public void setPatientDateOfBirth(LocalDate patientDateOfBirth) {
 		this.patientDateOfBirth = patientDateOfBirth;
 	}
 
@@ -112,21 +113,21 @@ public class PatientsDTO {
 		this.patientTreatment = patientTreatment;
 	}
 
-	public InvoiceDetails getInvoicedetails() {
-		return invoicedetails;
-	}
-
-	public void setInvoicedetails(InvoiceDetails invoicedetails) {
-		this.invoicedetails = invoicedetails;
-	}
-
-	public InsuranceClaims getInsuranceClaim() {
-		return insuranceClaim;
-	}
-
-	public void setInsuranceClaim(InsuranceClaims insuranceClaim) {
-		this.insuranceClaim = insuranceClaim;
-	}
+//	public InvoiceDetails getInvoicedetails() {
+//		return invoicedetails;
+//	}
+//
+//	public void setInvoicedetails(InvoiceDetails invoicedetails) {
+//		this.invoicedetails = invoicedetails;
+//	}
+//
+//	public InsuranceClaims getInsuranceClaim() {
+//		return insuranceClaim;
+//	}
+//
+//	public void setInsuranceClaim(InsuranceClaims insuranceClaim) {
+//		this.insuranceClaim = insuranceClaim;
+//	}
 
 	@Override
 	public String toString() {
@@ -134,7 +135,7 @@ public class PatientsDTO {
 				+ patientPassword + ", patientDateOfBirth=" + patientDateOfBirth + ", patientGender=" + patientGender
 				+ ", patientMobileNumber=" + patientMobileNumber + ", patientAddress=" + patientAddress
 				+ ", patientSymptoms=" + patientSymptoms + ", patientTreatment=" + patientTreatment
-				+ ", insuranceClaim=" + insuranceClaim + ", invoicedetails=" + invoicedetails + "]";
+				 + "]";
 	}
 
 }

@@ -29,8 +29,8 @@ public class PatientsServiceImp implements IPatientsService {
 		patient.setPatientMobileNumber(patientsDto.getPatientMobileNumber());
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
-		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
-		patient.setInvoicedetails(patientsDto.getInvoicedetails());
+//		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
+//		patient.setInvoicedetails(patientsDto.getInvoicedetails());
 
 		return repo.save(patient);
 	}
@@ -46,8 +46,8 @@ public class PatientsServiceImp implements IPatientsService {
 		patient.setPatientMobileNumber(patientsDto.getPatientMobileNumber());
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
-		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
-		patient.setInvoicedetails(patientsDto.getInvoicedetails());
+//		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
+//		patient.setInvoicedetails(patientsDto.getInvoicedetails());
 		return repo.save(patient);
 
 	}

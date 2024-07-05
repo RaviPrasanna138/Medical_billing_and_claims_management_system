@@ -1,5 +1,6 @@
 package com.wipro.mbcms.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.AdminMedicalDTO;
@@ -9,6 +10,7 @@ import com.wipro.mbcms.repositories.AdminMedicalRepository;
 @Service
 public class AdminMedicalServiceImp implements IAdminMedicalService {
 	
+	@Autowired
 	private AdminMedicalRepository adminRepo;
 
 	@Override

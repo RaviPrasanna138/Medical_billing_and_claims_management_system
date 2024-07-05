@@ -24,7 +24,7 @@ public class HealthcareProviderServiceImp implements IHealthcareProviderService 
 		provider.setProviderName(providerDto.getProviderName());
 		provider.setProviderPassword(providerDto.getProviderPassword());
 		provider.setProviderEmail(providerDto.getProviderEmail());
-		provider.setProviderSpeciality(provider.getProviderSpeciality());
+		provider.setProviderSpeciality(providerDto.getProviderSpeciality());
 		logger.info("HealthcareProvider is successfully added");
 		return healthcareRepo.save(provider);
 	}
@@ -36,7 +36,7 @@ public class HealthcareProviderServiceImp implements IHealthcareProviderService 
 		provider.setProviderName(providerDto.getProviderName());
 		provider.setProviderPassword(providerDto.getProviderPassword());
 		provider.setProviderEmail(providerDto.getProviderEmail());
-		provider.setProviderSpeciality(provider.getProviderSpeciality());
+		provider.setProviderSpeciality(providerDto.getProviderSpeciality());
 		logger.info("HealthcareProvider is updated sucessfully");
 		return healthcareRepo.save(provider);
 	}

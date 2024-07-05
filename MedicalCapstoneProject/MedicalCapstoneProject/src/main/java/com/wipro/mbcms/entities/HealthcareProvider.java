@@ -21,7 +21,6 @@ public class HealthcareProvider {
 	private String providerPassword;
 	@Email
 	private String providerEmail;
-	@NotBlank
 	private String providerSpeciality;
 	private final static String role = "PROVIDER";
 
