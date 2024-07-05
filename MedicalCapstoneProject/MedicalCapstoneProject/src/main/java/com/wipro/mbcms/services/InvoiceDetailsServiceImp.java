@@ -27,7 +27,7 @@ public class InvoiceDetailsServiceImp implements IInvoiceDetailsService {
 		details.setInvoiceTax(detailsDto.getInvoiceTax());
 		details.setConsultationFee(detailsDto.getConsultationFee());
 		details.setDiagnosticsTestsFee(detailsDto.getDiagnosticsTestsFee());
-		details.setDiagnoticsScanFee(detailsDto.getDiagnoticsScanFee());
+		details.setDiagnosticsScanFee(detailsDto.getDiagnosticsScanFee());
 		details.setInvoiceTotalAmount(detailsDto.getInvoiceTotalAmount());
 		details.setTotalBillAmount(detailsDto.getTotalBillAmount());
 		details.setPatient(patients);
