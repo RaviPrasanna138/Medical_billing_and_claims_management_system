@@ -14,6 +14,26 @@ public class PatientsDTO {
 	private String patientSymptoms;
 	private String patientTreatment;
 
+	public PatientsDTO() {
+		super();
+	}
+
+	public PatientsDTO(long patientId, String patientName, String patientPassword, Date patientDateOfBirth,
+			String patientGender, long patientMobileNumber, String patientAddress, String patientSymptoms,
+			String patientTreatment) {
+		super();
+		this.patientId = patientId;
+		this.patientName = patientName;
+		this.patientPassword = patientPassword;
+		this.patientDateOfBirth = patientDateOfBirth;
+		this.patientGender = patientGender;
+		this.patientMobileNumber = patientMobileNumber;
+		this.patientAddress = patientAddress;
+		this.patientSymptoms = patientSymptoms;
+		this.patientTreatment = patientTreatment;
+	}
+	
+
 	public long getPatientId() {
 		return patientId;
 	}
@@ -83,25 +103,6 @@ public class PatientsDTO {
 	}
 
 	public void setPatientTreatment(String patientTreatment) {
-		this.patientTreatment = patientTreatment;
-	}
-
-	public PatientsDTO() {
-		super();
-	}
-
-	public PatientsDTO(long patientId, String patientName, String patientPassword, Date patientDateOfBirth,
-			String patientGender, long patientMobileNumber, String patientAddress, String patientSymptoms,
-			String patientTreatment) {
-		super();
-		this.patientId = patientId;
-		this.patientName = patientName;
-		this.patientPassword = patientPassword;
-		this.patientDateOfBirth = patientDateOfBirth;
-		this.patientGender = patientGender;
-		this.patientMobileNumber = patientMobileNumber;
-		this.patientAddress = patientAddress;
-		this.patientSymptoms = patientSymptoms;
 		this.patientTreatment = patientTreatment;
 	}
 

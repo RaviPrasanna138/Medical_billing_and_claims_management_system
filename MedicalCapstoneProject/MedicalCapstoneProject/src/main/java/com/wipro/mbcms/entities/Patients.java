@@ -17,7 +17,7 @@ import jakarta.validation.constraints.Pattern;
 public class Patients {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long patientId;
 	@NotBlank
 	private String patientName;
@@ -32,9 +32,7 @@ public class Patients {
 	private String patientAddress;
 	@NotBlank
 	private String patientSymptoms;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "planId")
-	private InsurancePlans plans;
+
 	private final static String role="PATIENTS";
 	public long getPatientId() {
 		return patientId;
@@ -90,19 +88,14 @@ public class Patients {
 	public void setPatientSymptoms(String patientSymptoms) {
 		this.patientSymptoms = patientSymptoms;
 	}
-	public InsurancePlans getPlans() {
-		return plans;
-	}
-	public void setPlans(InsurancePlans plans) {
-		this.plans = plans;
-	}
+	
 	public static String getRole() {
 		return role;
 	}
 	public Patients(long patientId, @NotBlank String patientName, @Email String patientEmail, String patientPassword,
 			@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5") Date patientDateOfBirth,
 			@NotBlank String patientGender, long patientMobileNumber, String patientAddress,
-			@NotBlank String patientSymptoms, InsurancePlans plans) {
+			@NotBlank String patientSymptoms) {
 		super();
 		this.patientId = patientId;
 		this.patientName = patientName;
@@ -113,7 +106,6 @@ public class Patients {
 		this.patientMobileNumber = patientMobileNumber;
 		this.patientAddress = patientAddress;
 		this.patientSymptoms = patientSymptoms;
-		this.plans = plans;
 	}
 	public Patients() {
 		super();
@@ -123,8 +115,7 @@ public class Patients {
 		return "Patients [patientId=" + patientId + ", patientName=" + patientName + ", patientEmail=" + patientEmail
 				+ ", patientPassword=" + patientPassword + ", patientDateOfBirth=" + patientDateOfBirth
 				+ ", patientGender=" + patientGender + ", patientMobileNumber=" + patientMobileNumber
-				+ ", patientAddress=" + patientAddress + ", patientSymptoms=" + patientSymptoms + ", plans=" + plans
-				+ "]";
+				+ ", patientAddress=" + patientAddress + ", patientSymptoms=" + patientSymptoms + "]";
 	}
 	
 	

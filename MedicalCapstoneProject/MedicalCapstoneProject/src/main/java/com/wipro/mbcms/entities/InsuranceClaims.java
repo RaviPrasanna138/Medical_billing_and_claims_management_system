@@ -14,7 +14,7 @@ import jakarta.validation.constraints.DecimalMin;
 public class InsuranceClaims {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "claimSequence")
-	@SequenceGenerator(name = "claimSequence", initialValue = 1000)
+	@SequenceGenerator(name = "claimSequence", initialValue = 10000)
 	private long claimId;
 	@DecimalMin(value = "200000")
 	@DecimalMax(value = "800000")
