@@ -52,4 +52,9 @@ public class InsurancePlansImp implements IInsurancePlansService {
 		return planRepo.findAll();
 	}
 
+	@Override
+	public List<InsurancePlans> getPlansByCompanyName(String companyName) {
+		return planRepo.findByCompanyName(companyName);
+	}
+
 }

@@ -14,5 +14,5 @@ public interface IInsurancePlansService {
 	
 	public List<InsurancePlans> getAllPlans();
 	
-
+	public List<InsurancePlans> getPlansByCompanyName(String companyName);
 }

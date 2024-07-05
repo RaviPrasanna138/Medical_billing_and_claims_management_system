@@ -15,6 +15,6 @@ public interface IInsuranceCompanyService {
 
 	public void deleteCompanyById(int companyId);
 
-	public InsuranceCompanyDTO getCompanyByName(String companyName);
+	public InsuranceCompany getCompanyByName(String companyName);
 
 }

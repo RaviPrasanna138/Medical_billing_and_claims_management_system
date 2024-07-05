@@ -3,15 +3,18 @@ package com.wipro.mbcms.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.InsuranceCompanyDTO;
 import com.wipro.mbcms.entities.InsuranceCompany;
+import com.wipro.mbcms.exceptions.CompanyNotRegisteredException;
 import com.wipro.mbcms.repositories.InsuranceCompanyRepository;
 @Service
 public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 	
-	
+	@Autowired
+	private InsuranceCompanyRepository comapanyRepo;
 	@Override
 	public List<InsuranceCompany> getAllInsuranceCompanyDetails() {
 		return CompanyRepo.findAll();
@@ -51,8 +54,11 @@ public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 	}
 
 	@Override
-	public InsuranceCompanyDTO getCompanyByName(String companyName) {
-		return null;
+	public InsuranceCompany getCompanyByName(String companyName) {
+		InsuranceCompany company = comapanyRepo.findByCompanyName(companyName)
+				.orElseThrow(() -> new CompanyNotRegisteredException(HttpStatus.SERVICE_UNAVAILABLE,
+						"Company With name : " + companyName + " has not registered with us !!"));
+		return company;
 	}
 
 }
