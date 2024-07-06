@@ -71,29 +71,8 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 
 	@Override
 
-	public InsuranceClaims getByPatientId(long claimId) {
-		return insuranceRepo.getById(claimId);
+	public InsuranceClaims getById(long claimId) {
+		return insuranceRepo.findById(claimId).orElse(null);
 	}
-
-//	@Override
-//	public List<InsuranceClaims> getClaimByPatientName(String patientName) {
-//		return insuranceRepo.getClaimByPatientName(patientName);
-//	}
-//
-//	@Override
-//	public List<InsuranceClaims> getClaimByPatientName(String patientName) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-//	@Override
-//	public List<InsuranceClaims> getClaimByPatientName(String patientName) {
-//		
-//		return insuranceRepo.getClaimByPatientName(patientName);
-//	}
-
-
-
-	
 
 }

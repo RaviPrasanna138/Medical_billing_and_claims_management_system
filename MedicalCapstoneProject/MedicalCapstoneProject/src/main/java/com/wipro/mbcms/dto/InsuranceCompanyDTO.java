@@ -36,7 +36,6 @@ public class InsuranceCompanyDTO {
 	public void setCompanyContact(String companyContact) {
 		this.companyContact = companyContact;
 	}
-
 }
 
 

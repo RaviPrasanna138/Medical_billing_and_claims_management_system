@@ -1,14 +1,11 @@
 package com.wipro.mbcms.dto;
 
-import com.wipro.mbcms.entities.InsuranceCompany;
-
 public class InsurancePlansDTO {
 	private int planID;
 	private String planName;
 	private String planType;
 	private double planCoverAmount;
 	private String planDetails;
-	private InsuranceCompany company;
 
 	public int getPlanID() {
 		return planID;
@@ -49,13 +46,4 @@ public class InsurancePlansDTO {
 	public void setPlanDetails(String planDetails) {
 		this.planDetails = planDetails;
 	}
-
-	public InsuranceCompany getCompany() {
-		return company;
-	}
-
-	public void setCompany(InsuranceCompany company) {
-		this.company = company;
-	}
-
 }

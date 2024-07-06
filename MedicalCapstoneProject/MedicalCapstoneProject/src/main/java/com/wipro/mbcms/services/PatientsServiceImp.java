@@ -24,14 +24,13 @@ public class PatientsServiceImp implements IPatientsService {
 		Patients patient = new Patients();
 		patient.setPatientName(patientsDto.getPatientName());
 		patient.setPatientPassword(patientsDto.getPatientPassword());
+		patient.setPatientEmail(patientsDto.getPatientEmail());
 		patient.setPatientDateOfBirth(patientsDto.getPatientDateOfBirth());
 		patient.setPatientGender(patientsDto.getPatientGender());
 		patient.setPatientMobileNumber(patientsDto.getPatientMobileNumber());
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
-//		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
-//		patient.setInvoicedetails(patientsDto.getInvoicedetails());
-
+		patient.setPatientTreatment(patientsDto.getPatientTreatment());
 		return repo.save(patient);
 	}
 
@@ -41,15 +40,28 @@ public class PatientsServiceImp implements IPatientsService {
 		patient.setPatientId(patientsDto.getPatientId());
 		patient.setPatientName(patientsDto.getPatientName());
 		patient.setPatientPassword(patientsDto.getPatientPassword());
+		patient.setPatientEmail(patientsDto.getPatientEmail());
 		patient.setPatientDateOfBirth(patientsDto.getPatientDateOfBirth());
 		patient.setPatientGender(patientsDto.getPatientGender());
 		patient.setPatientMobileNumber(patientsDto.getPatientMobileNumber());
 		patient.setPatientAddress(patientsDto.getPatientAddress());
 		patient.setPatientSymptoms(patientsDto.getPatientSymptoms());
-//		patient.setInsuranceClaim(patientsDto.getInsuranceClaim());
-//		patient.setInvoicedetails(patientsDto.getInvoicedetails());
+		patient.setPatientTreatment(patientsDto.getPatientTreatment());
 		return repo.save(patient);
 
+	}
+	public PatientsDTO getPatientByName(String patientName) {
+		Patients patient = repo.findByPatientName(patientName).orElse(new Patients());
+		PatientsDTO patientdto = new PatientsDTO();
+		patientdto.setPatientId(patient.getPatientId());
+		patientdto.setPatientName(patient.getPatientName());
+		patientdto.setPatientDateOfBirth(patient.getPatientDateOfBirth());
+		patientdto.setPatientGender(patient.getPatientGender());
+		patientdto.setPatientMobileNumber(patient.getPatientMobileNumber());
+		patientdto.setPatientAddress(patient.getPatientAddress());
+		patientdto.setPatientSymptoms(patient.getPatientSymptoms());
+		patientdto.setPatientTreatment(patient.getPatientTreatment());
+		return patientdto;
 	}
 
 	@Override

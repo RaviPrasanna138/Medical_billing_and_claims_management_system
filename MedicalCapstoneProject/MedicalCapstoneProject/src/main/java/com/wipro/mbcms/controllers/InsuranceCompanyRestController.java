@@ -33,8 +33,9 @@ public class InsuranceCompanyRestController {
 	}
 
 	@DeleteMapping("/delete/companyById/{companyId}")
-	public void deleteExistingCompany(@PathVariable int companyId) {
+	public String deleteExistingCompany(@PathVariable int companyId) {
 		service.deleteCompanyById(companyId);
+		return "Insurance Company with id " + companyId + " is deleted";
 	}
 	
 	@GetMapping("/getbycompanyname/{companyName}")

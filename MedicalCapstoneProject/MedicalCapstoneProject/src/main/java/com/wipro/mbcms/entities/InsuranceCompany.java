@@ -1,9 +1,11 @@
 package com.wipro.mbcms.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,8 +15,8 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 public class InsuranceCompany {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companySequence")
 	@SequenceGenerator(name = "companySequence", initialValue = 1000)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companySequence")
 	private int companyId;
 	@NotNull
 	private String companyName;
@@ -24,6 +26,8 @@ public class InsuranceCompany {
 	private String companyEmail;
 	@NotBlank
 	private String companyContact;
+	@OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
+	private InsurancePlans insurancePlans;
 	private final static String role = "COMPANY";
 
 	public int getCompanyId() {
@@ -68,6 +72,14 @@ public class InsuranceCompany {
 
 	public static String getRole() {
 		return role;
+	}
+
+	public InsurancePlans getInsurancePlans() {
+		return insurancePlans;
+	}
+
+	public void setInsurancePlans(InsurancePlans insurancePlans) {
+		this.insurancePlans = insurancePlans;
 	}
 
 	public InsuranceCompany(int companyId, @NotNull String companyName,

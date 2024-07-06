@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -18,11 +18,11 @@ public class InsurancePlans {
 	@NotBlank
 	private String planName;
 	private String planType;
-	@DecimalMax(value = "10000000")
-	@DecimalMin(value = "1000000")
+	@DecimalMax(value = "1000000")
+	@DecimalMin(value = "100000")
 	private double planCoverAmount;
 	private String planDetails;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "companyId")
 	private InsuranceCompany company;
 

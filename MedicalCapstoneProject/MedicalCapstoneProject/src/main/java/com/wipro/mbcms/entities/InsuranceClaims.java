@@ -21,7 +21,6 @@ public class InsuranceClaims {
 	@DecimalMax(value = "800000")
 	private double claimAmount;
 	private String claimStatus;
-	@DecimalMin(value = "50000")
 	@DecimalMax(value = "800000")
 	private double invoiceAmount;
 	@OneToOne
@@ -30,6 +29,8 @@ public class InsuranceClaims {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "planId")
 	private InsurancePlans plans;
+	
+
 	
 	
     private String patientName;

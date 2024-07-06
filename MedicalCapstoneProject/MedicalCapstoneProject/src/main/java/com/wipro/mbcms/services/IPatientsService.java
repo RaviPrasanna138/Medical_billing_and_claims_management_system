@@ -11,6 +11,8 @@ public interface IPatientsService {
 	public Patients addPatients(PatientsDTO patientsDto);
 
 	public Patients updatePatients(PatientsDTO patientsDto);
+	
+	public PatientsDTO getPatientByName(String patientName);
 
 	public String deletPatients(long patientId);
 	

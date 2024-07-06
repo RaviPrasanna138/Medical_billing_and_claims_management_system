@@ -29,12 +29,16 @@ public class AdminMedicalRestController {
 	@Autowired
 	private IAdminMedicalService adminService;
 	
+	@Autowired
 	private IHealthcareProviderService providerService;
 	
+	@Autowired
 	private IInsuranceClaimsService claimService;
 	
+	@Autowired
 	private IPatientsService patientService;
 	
+	@Autowired
 	private IInsurancePlansService planService;
 	
 	@PostMapping("/add")

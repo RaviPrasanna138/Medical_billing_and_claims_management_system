@@ -1,7 +1,5 @@
 package com.wipro.mbcms.entities;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +17,7 @@ public class InvoiceDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invoiceSequence")
 	@SequenceGenerator(name = "invoiceSequence", initialValue = 100000)
 	private int invoiceId;
-	private LocalDate invoiceDate;
+	private String invoiceDate;
 	@NotNull
 	private double invoiceTax;
 	@DecimalMax(value = "5000")
@@ -38,10 +36,10 @@ public class InvoiceDetails {
 	public void setInvoiceId(int invoiceId) {
 		this.invoiceId = invoiceId;
 	}
-	public LocalDate getInvoiceDate() {
+	public String getInvoiceDate() {
 		return invoiceDate;
 	}
-	public void setInvoiceDate(LocalDate invoiceDate) {
+	public void setInvoiceDate(String invoiceDate) {
 		this.invoiceDate = invoiceDate;
 	}
 	public double getInvoiceTax() {
@@ -86,7 +84,7 @@ public class InvoiceDetails {
 	public void setPatient(Patients patient) {
 		this.patient = patient;
 	}
-	public InvoiceDetails(int invoiceId, LocalDate invoiceDate, @NotNull double invoiceTax,
+	public InvoiceDetails(int invoiceId, String invoiceDate, @NotNull double invoiceTax,
 			@DecimalMax("5000") @DecimalMin("1000") double consultationFee, double diagnosticsTestsFee,
 			double diagnosticsScanFee, double invoiceTotalAmount, double totalBillAmount, Patients patient) {
 		super();
@@ -110,7 +108,7 @@ public class InvoiceDetails {
 				+ ", diagnosticsScanFee=" + diagnosticsScanFee + ", invoiceTotalAmount=" + invoiceTotalAmount
 				+ ", totalBillAmount=" + totalBillAmount + ", patient=" + patient + "]";
 	}
-
+	
 
 
 }

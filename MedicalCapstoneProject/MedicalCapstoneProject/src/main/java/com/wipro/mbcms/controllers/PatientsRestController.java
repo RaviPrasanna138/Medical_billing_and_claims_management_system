@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wipro.mbcms.dto.PatientsDTO;
 import com.wipro.mbcms.entities.Patients;
 import com.wipro.mbcms.exceptions.PatientIllegalArgumentsException;
+import com.wipro.mbcms.exceptions.PatientNotFoundException;
 import com.wipro.mbcms.services.IInsurancePlansService;
 import com.wipro.mbcms.services.IPatientsService;
 
@@ -49,9 +50,20 @@ public class PatientsRestController {
 		return patient;
 	}
 
-	@PutMapping("/updatePatient/{patientId}")
-	public Patients updatePatient(@RequestBody PatientsDTO patientDTO, @PathVariable long patientId) {
+	@PutMapping("/updatePatient")
+	public Patients updatePatient(@RequestBody PatientsDTO patientDTO) {
 		return service.updatePatients(patientDTO);
+	}
+	
+	@GetMapping("/getbyname/{patientName}")
+	public PatientsDTO getByPatientName(@PathVariable String patientName) {
+		PatientsDTO patientdto = service.getPatientByName(patientName);
+		if (patientdto.getPatientName() == null) {
+			logger.error("Patient with name " + patientName + " is not registered with us!!!!");
+			throw new PatientNotFoundException(HttpStatus.NOT_FOUND,
+					"Patient with name " + patientName + " does not exist");
+		}
+		return patientdto;
 	}
 	
 	

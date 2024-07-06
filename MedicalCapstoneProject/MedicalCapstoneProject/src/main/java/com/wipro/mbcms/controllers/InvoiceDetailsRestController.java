@@ -21,7 +21,7 @@ public class InvoiceDetailsRestController {
 	@Autowired
 	private IInvoiceDetailsService service;
 	
-	@PostMapping("/add")
+	@PostMapping("/add/{patientId}")
 	public InvoiceDetails addInvoice(@RequestBody InvoiceDetailsDTO detailsDto,@PathVariable long patientId) {
 		return service.addInvoice(detailsDto, patientId);
 	}

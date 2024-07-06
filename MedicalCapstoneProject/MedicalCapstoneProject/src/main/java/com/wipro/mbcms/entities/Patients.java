@@ -1,8 +1,5 @@
 package com.wipro.mbcms.entities;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,28 +20,30 @@ public class Patients {
 	private String patientName;
 	@Email
 	private String patientEmail;
-	private String patientPassword;
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
-	private LocalDate patientDateOfBirth;
+	private String patientPassword;
+	private String patientDateOfBirth;
 	@NotBlank
 	private String patientGender;
 	private long patientMobileNumber;
 	private String patientAddress;
 	@NotBlank
 	private String patientSymptoms;
-//	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-//	private InsuranceClaims insuranceClaim;
-//	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-//	private InvoiceDetails invoicedetails;
+	private String patientTreatment;
+	@OneToOne( cascade = CascadeType.ALL)
+	 private InsuranceClaims insuranceClaims;
+	@OneToOne( cascade = CascadeType.ALL)
+	private InvoiceDetails invoiceDetails;
 
 	private final static String role = "PATIENTS";
+	
+	
+	public Patients() {
+		super();
+	}
 
 	public long getPatientId() {
 		return patientId;
-	}
-
-	public void setPatientId(long patientId) {
-		this.patientId = patientId;
 	}
 
 	public String getPatientName() {
@@ -71,11 +70,11 @@ public class Patients {
 		this.patientPassword = patientPassword;
 	}
 
-	public LocalDate getPatientDateOfBirth() {
+	public String getPatientDateOfBirth() {
 		return patientDateOfBirth;
 	}
 
-	public void setPatientDateOfBirth(LocalDate patientDateOfBirth) {
+	public void setPatientDateOfBirth(String patientDateOfBirth) {
 		this.patientDateOfBirth = patientDateOfBirth;
 	}
 
@@ -111,30 +110,29 @@ public class Patients {
 		this.patientSymptoms = patientSymptoms;
 	}
 
-//	public InsuranceClaims getInsuranceClaim() {
-//		return insuranceClaim;
-//	}
-//
-//	public void setInsuranceClaim(InsuranceClaims insuranceClaim) {
-//		this.insuranceClaim = insuranceClaim;
-//	}
-//
-//	public InvoiceDetails getInvoicedetails() {
-//		return invoicedetails;
-//	}
-//
-//	public void setInvoicedetails(InvoiceDetails invoicedetails) {
-//		this.invoicedetails = invoicedetails;
-//	}
+
 
 	public static String getRole() {
 		return role;
 	}
 
-	public Patients(long patientId, @NotBlank String patientName, @Email String patientEmail, String patientPassword,
-			@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5") LocalDate patientDateOfBirth,
-			@NotBlank String patientGender, long patientMobileNumber, String patientAddress,
-			@NotBlank String patientSymptoms, InsuranceClaims insuranceClaim, InvoiceDetails invoicedetails) {
+	public void setPatientId(long patientId) {
+		this.patientId = patientId;
+	}
+
+	public String getPatientTreatment() {
+		return patientTreatment;
+	}
+
+	public void setPatientTreatment(String patientTreatment) {
+		this.patientTreatment = patientTreatment;
+	}
+
+	public Patients(long patientId, @NotBlank String patientName, @Email String patientEmail,
+			@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5") String patientPassword,
+			String patientDateOfBirth, @NotBlank String patientGender, long patientMobileNumber, String patientAddress,
+			@NotBlank String patientSymptoms, String patientTreatment, InsuranceClaims insuranceClaims,
+			InvoiceDetails invoiceDetails) {
 		super();
 		this.patientId = patientId;
 		this.patientName = patientName;
@@ -145,12 +143,9 @@ public class Patients {
 		this.patientMobileNumber = patientMobileNumber;
 		this.patientAddress = patientAddress;
 		this.patientSymptoms = patientSymptoms;
-//		this.insuranceClaim = insuranceClaim;
-//		this.invoicedetails = invoicedetails;
-	}
-
-	public Patients() {
-		super();
+		this.patientTreatment = patientTreatment;
+		this.insuranceClaims = insuranceClaims;
+		this.invoiceDetails = invoiceDetails;
 	}
 
 	@Override
@@ -158,7 +153,10 @@ public class Patients {
 		return "Patients [patientId=" + patientId + ", patientName=" + patientName + ", patientEmail=" + patientEmail
 				+ ", patientPassword=" + patientPassword + ", patientDateOfBirth=" + patientDateOfBirth
 				+ ", patientGender=" + patientGender + ", patientMobileNumber=" + patientMobileNumber
-				+ ", patientAddress=" + patientAddress + ", patientSymptoms=" + patientSymptoms + "]";
+				+ ", patientAddress=" + patientAddress + ", patientSymptoms=" + patientSymptoms + ", patientTreatment="
+				+ patientTreatment + ", insuranceClaims=" + insuranceClaims + ", invoiceDetails=" + invoiceDetails
+				+ "]";
 	}
 
+	
 }

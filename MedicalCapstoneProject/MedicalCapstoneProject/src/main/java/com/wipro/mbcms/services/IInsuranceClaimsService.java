@@ -14,7 +14,7 @@ public interface IInsuranceClaimsService {
 
 	public InsuranceClaims updateClaims(InsuranceClaimsDTO claimsDto, long claimId);
 
-	public InsuranceClaims getByPatientId(long claimId);
+	public InsuranceClaims getById(long claimId);
 
 //	public List<InsuranceClaims> getClaimByPatientName(String patientName);
 

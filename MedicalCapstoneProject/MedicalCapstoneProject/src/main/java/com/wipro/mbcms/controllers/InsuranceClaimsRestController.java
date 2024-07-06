@@ -40,14 +40,9 @@ public class InsuranceClaimsRestController {
 		return claimService.updateClaims(claimDTO, claimId);
 	}
 
-//	@GetMapping("/getclaims/{patientName}")
-//	public List<InsuranceClaims> getClaimByCompanyName(@PathVariable String patientName) {
-//		return claimService.getClaimByPatientName(patientName);
-//	}
-
-	@GetMapping("/getClaims/{patinetId}")
-	public InsuranceClaims getClaimbyId(@PathVariable Long patientId) {
-		return claimService.getByPatientId(patientId);
+	@GetMapping("/getClaims/{claimId}")
+	public InsuranceClaims getClaimById(@PathVariable Long claimId) {
+		return claimService.getById(claimId);
 	}
 
 }
