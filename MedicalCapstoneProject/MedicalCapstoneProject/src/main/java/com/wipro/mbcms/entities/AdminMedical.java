@@ -14,7 +14,7 @@ public class AdminMedical {
 	private String adminName;
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
 	private String adminPassword;
-	private final static String role = "ADMIN";
+	private final String role = "ADMIN";
 
 	public int getAdminId() {
 		return adminId;
@@ -40,7 +40,7 @@ public class AdminMedical {
 		this.adminPassword = adminPassword;
 	}
 
-	public static String getRole() {
+	public String getRole() {
 		return role;
 	}
 

@@ -30,7 +30,7 @@ public class InsuranceCompany {
 	private String companyContact;
 	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
 	private List<InsurancePlans> insurancePlans;
-	private final static String role = "COMPANY";
+	private final String role = "COMPANY";
 
 	public int getCompanyId() {
 		return companyId;
@@ -72,7 +72,7 @@ public class InsuranceCompany {
 		this.companyContact = companyContact;
 	}
 
-	public static String getRole() {
+	public String getRole() {
 		return role;
 	}
 

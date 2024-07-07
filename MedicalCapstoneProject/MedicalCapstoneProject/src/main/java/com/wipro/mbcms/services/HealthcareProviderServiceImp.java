@@ -5,24 +5,29 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.HealthcareProviderDTO;
 import com.wipro.mbcms.entities.HealthcareProvider;
 import com.wipro.mbcms.repositories.HealthcareProviderRepository;
+
 @Service
 public class HealthcareProviderServiceImp implements IHealthcareProviderService {
 
-	Logger logger=LoggerFactory.getLogger(HealthcareProviderServiceImp.class);
-	
+	Logger logger = LoggerFactory.getLogger(HealthcareProviderServiceImp.class);
+
 	@Autowired
 	private HealthcareProviderRepository healthcareRepo;
+	
+	@Autowired
+	PasswordEncoder encoder;
 
 	@Override
 	public HealthcareProvider addProvider(HealthcareProviderDTO providerDto) {
 		HealthcareProvider provider = new HealthcareProvider();
 		provider.setProviderName(providerDto.getProviderName());
-		provider.setProviderPassword(providerDto.getProviderPassword());
+		provider.setProviderPassword(encoder.encode(providerDto.getProviderPassword()));
 		provider.setProviderEmail(providerDto.getProviderEmail());
 		provider.setProviderSpeciality(providerDto.getProviderSpeciality());
 		logger.info("HealthcareProvider is successfully added");
@@ -34,7 +39,7 @@ public class HealthcareProviderServiceImp implements IHealthcareProviderService 
 		HealthcareProvider provider = new HealthcareProvider();
 		provider.setProviderId(providerDto.getProviderId());
 		provider.setProviderName(providerDto.getProviderName());
-		provider.setProviderPassword(providerDto.getProviderPassword());
+		provider.setProviderPassword(encoder.encode(providerDto.getProviderPassword()));
 		provider.setProviderEmail(providerDto.getProviderEmail());
 		provider.setProviderSpeciality(providerDto.getProviderSpeciality());
 		logger.info("HealthcareProvider is updated sucessfully");
@@ -49,13 +54,13 @@ public class HealthcareProviderServiceImp implements IHealthcareProviderService 
 
 	@Override
 	public HealthcareProvider getProviderById(int providerId) {
-		logger.info("HealthcareProvider with id "+providerId+" is fetched");
+		logger.info("HealthcareProvider with id " + providerId + " is fetched");
 		return healthcareRepo.findById(providerId).orElse(null);
 	}
 
 	@Override
 	public void deleteProviderById(int providerId) {
-		logger.warn("HealthcareProvider with id "+providerId+" is deleted");
+		logger.warn("HealthcareProvider with id " + providerId + " is deleted");
 		healthcareRepo.deleteById(providerId);
 	}
 

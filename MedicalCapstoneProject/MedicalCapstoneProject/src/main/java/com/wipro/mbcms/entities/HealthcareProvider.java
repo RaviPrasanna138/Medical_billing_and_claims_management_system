@@ -22,7 +22,7 @@ public class HealthcareProvider {
 	@Email
 	private String providerEmail;
 	private String providerSpeciality;
-	private final static String role = "PROVIDER";
+	private final String role = "PROVIDER";
 
 	public int getProviderId() {
 		return providerId;
@@ -64,7 +64,7 @@ public class HealthcareProvider {
 		this.providerSpeciality = providerSpeciality;
 	}
 
-	public static String getRole() {
+	public String getRole() {
 		return role;
 	}
 

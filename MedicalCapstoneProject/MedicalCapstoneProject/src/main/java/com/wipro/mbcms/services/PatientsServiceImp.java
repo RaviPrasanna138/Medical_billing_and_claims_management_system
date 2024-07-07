@@ -2,6 +2,7 @@ package com.wipro.mbcms.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.PatientsDTO;
@@ -12,6 +13,9 @@ import com.wipro.mbcms.repositories.PatientRepository;
 public class PatientsServiceImp implements IPatientsService {
 	@Autowired
 	PatientRepository repo;
+	
+	@Autowired
+	PasswordEncoder encoder;
 
 	@Override
 	public List<Patients> getAllPatients() {
@@ -23,7 +27,7 @@ public class PatientsServiceImp implements IPatientsService {
 
 		Patients patient = new Patients();
 		patient.setPatientName(patientsDto.getPatientName());
-		patient.setPatientPassword(patientsDto.getPatientPassword());
+		patient.setPatientPassword(encoder.encode(patientsDto.getPatientPassword()));
 		patient.setPatientEmail(patientsDto.getPatientEmail());
 		patient.setPatientDateOfBirth(patientsDto.getPatientDateOfBirth());
 		patient.setPatientGender(patientsDto.getPatientGender());
@@ -39,7 +43,7 @@ public class PatientsServiceImp implements IPatientsService {
 		Patients patient = new Patients();
 		patient.setPatientId(patientsDto.getPatientId());
 		patient.setPatientName(patientsDto.getPatientName());
-		patient.setPatientPassword(patientsDto.getPatientPassword());
+		patient.setPatientPassword(encoder.encode(patientsDto.getPatientPassword()));
 		patient.setPatientEmail(patientsDto.getPatientEmail());
 		patient.setPatientDateOfBirth(patientsDto.getPatientDateOfBirth());
 		patient.setPatientGender(patientsDto.getPatientGender());

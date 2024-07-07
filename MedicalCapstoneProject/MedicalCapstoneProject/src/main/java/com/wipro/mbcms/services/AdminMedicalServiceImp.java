@@ -1,6 +1,7 @@
 package com.wipro.mbcms.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.AdminMedicalDTO;
@@ -12,12 +13,15 @@ public class AdminMedicalServiceImp implements IAdminMedicalService {
 	
 	@Autowired
 	private AdminMedicalRepository adminRepo;
+	
+	@Autowired
+	PasswordEncoder encoder;
 
 	@Override
 	public AdminMedical addAdmin(AdminMedicalDTO adminDto) {
 		AdminMedical admin = new AdminMedical();
 		admin.setAdminName(adminDto.getAdminName());
-		admin.setAdminPassword(adminDto.getAdminPassword());
+		admin.setAdminPassword(encoder.encode(adminDto.getAdminPassword()));
 		return adminRepo.save(admin);
 	}
 
@@ -26,7 +30,7 @@ public class AdminMedicalServiceImp implements IAdminMedicalService {
 		AdminMedical admin = new AdminMedical();
 		admin.setAdminId(adminDto.getAdminId());
 		admin.setAdminName(adminDto.getAdminName());
-		admin.setAdminPassword(adminDto.getAdminPassword());
+		admin.setAdminPassword(encoder.encode(adminDto.getAdminPassword()));
 		return adminRepo.save(admin);
 	}
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wipro.mbcms.dto.InsuranceCompanyDTO;
@@ -15,6 +16,10 @@ public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 	
 	@Autowired
 	private InsuranceCompanyRepository comapanyRepo;
+	
+	@Autowired
+	PasswordEncoder encoder;
+	
 	@Override
 	public List<InsuranceCompany> getAllInsuranceCompanyDetails() {
 		return CompanyRepo.findAll();
@@ -30,7 +35,7 @@ public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 		company.setCompanyName(companyDto.getCompanyName());
 		company.setCompanyContact(companyDto.getCompanyContact());
 		company.setCompanyEmail(companyDto.getCompanyEmail());
-		company.setCompanyPassword(companyDto.getCompanyPassword());
+		company.setCompanyPassword(encoder.encode(companyDto.getCompanyPassword()));
 		return CompanyRepo.save(company);
 	}
 
@@ -41,7 +46,7 @@ public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 		company.setCompanyName(companyDto.getCompanyName());
 		company.setCompanyContact(companyDto.getCompanyContact());
 		company.setCompanyEmail(companyDto.getCompanyEmail());
-		company.setCompanyPassword(companyDto.getCompanyPassword());
+		company.setCompanyPassword(encoder.encode(companyDto.getCompanyPassword()));
 		return CompanyRepo.save(company);
 	}
 

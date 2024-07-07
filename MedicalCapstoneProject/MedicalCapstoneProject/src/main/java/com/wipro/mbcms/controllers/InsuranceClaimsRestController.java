@@ -3,6 +3,7 @@ package com.wipro.mbcms.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,12 +24,14 @@ public class InsuranceClaimsRestController {
 	private IInsuranceClaimsService claimService;
 
 	@GetMapping("/getallclaims")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<InsuranceClaims> getAllClaims() {
 		return claimService.getAllInsuranceClaims();
 
 	}
 
 	@PostMapping("/add/newclaim/{patientName}/{planId}")
+	@PreAuthorize("hasAuthority('PATIENTS')")
 	public InsuranceClaims insertNewClaim(@RequestBody InsuranceClaimsDTO claimDTO, @PathVariable String patientName,
 			@PathVariable int planId) {
 		System.out.println(patientName);
@@ -36,11 +39,13 @@ public class InsuranceClaimsRestController {
 	}
 
 	@PutMapping("/update/claim/{claimId}")
+	@PreAuthorize("hasAuthority('COMPANY')")
 	public InsuranceClaims updateStatus(@RequestBody InsuranceClaimsDTO claimDTO, @PathVariable long claimId) {
 		return claimService.updateClaims(claimDTO, claimId);
 	}
 
 	@GetMapping("/getClaims/{claimId}")
+	@PreAuthorize("hasAuthority('COMPANY')")
 	public InsuranceClaims getClaimById(@PathVariable Long claimId) {
 		return claimService.getById(claimId);
 	}

@@ -35,7 +35,7 @@ public class Patients {
 	@OneToOne( cascade = CascadeType.ALL)
 	private InvoiceDetails invoiceDetails;
 
-	private final static String role = "PATIENTS";
+	private final String role = "PATIENTS";
 	
 	
 	public Patients() {
@@ -112,7 +112,7 @@ public class Patients {
 
 
 
-	public static String getRole() {
+	public String getRole() {
 		return role;
 	}
 
