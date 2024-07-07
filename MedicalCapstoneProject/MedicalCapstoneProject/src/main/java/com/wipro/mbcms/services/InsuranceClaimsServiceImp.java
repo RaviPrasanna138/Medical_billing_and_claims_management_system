@@ -48,7 +48,7 @@ public class InsuranceClaimsServiceImp implements IInsuranceClaimsService {
 		claims.setClaimStatus(claimDto.getClaimStatus());
 		claims.setPatient(patients);
 		claims.setPlans(plans);
-		logger.info("Claims ");
+		logger.info("Claims added ");
 		return insuranceRepo.save(claims);
 
 	}

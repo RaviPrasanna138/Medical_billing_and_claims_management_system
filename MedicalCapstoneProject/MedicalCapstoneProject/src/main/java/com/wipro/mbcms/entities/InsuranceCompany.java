@@ -1,11 +1,13 @@
 package com.wipro.mbcms.entities;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -26,8 +28,8 @@ public class InsuranceCompany {
 	private String companyEmail;
 	@NotBlank
 	private String companyContact;
-	@OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
-	private InsurancePlans insurancePlans;
+	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+	private List<InsurancePlans> insurancePlans;
 	private final static String role = "COMPANY";
 
 	public int getCompanyId() {
@@ -74,13 +76,13 @@ public class InsuranceCompany {
 		return role;
 	}
 
-	public InsurancePlans getInsurancePlans() {
-		return insurancePlans;
-	}
-
-	public void setInsurancePlans(InsurancePlans insurancePlans) {
-		this.insurancePlans = insurancePlans;
-	}
+//	public InsurancePlans getInsurancePlans() {
+//		return insurancePlans;
+//	}
+//
+//	public void setInsurancePlans(InsurancePlans insurancePlans) {
+//		this.insurancePlans = insurancePlans;
+//	}
 
 	public InsuranceCompany(int companyId, @NotNull String companyName,
 			@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5") String companyPassword,

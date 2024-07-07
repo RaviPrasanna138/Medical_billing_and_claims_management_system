@@ -23,7 +23,7 @@ public class InsurancePlansImp implements IInsurancePlansService {
 	private InsuranceCompanyRepository companyRepo;
 	@Override
 	public InsurancePlans addInsurancePlan(InsurancePlansDTO plansDto, String companyName) {
-		InsuranceCompany company= companyRepo.findByCompanyName(companyName).orElse(new InsuranceCompany());
+		InsuranceCompany company= companyRepo.findByCompanyName(companyName).orElseThrow(null);
 		InsurancePlans plans = new InsurancePlans();
 		plans.setPlanID(plansDto.getPlanID());
 		plans.setPlanName(plansDto.getPlanName());
