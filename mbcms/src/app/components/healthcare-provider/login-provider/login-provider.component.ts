@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-provider.component.css']
 })
 export class LoginProviderComponent {
-
+  // Implement login functionality here
 }

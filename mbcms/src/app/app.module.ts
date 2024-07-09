@@ -4,13 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { HealthcareProviderComponent } from './components/healthcare-provider/healthcare-provider.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { InsuranceClaimsComponent } from './components/insurance-claims/insurance-claims.component';
-import { InsuranceCompanyComponent } from './components/insurance-company/insurance-company.component';
-import { InsurancePlansComponent } from './components/insurance-plans/insurance-plans.component';
-import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
-import { PatientsComponent } from './components/patients/patients.component';
 import { AddadminComponent } from './components/admin/addadmin/addadmin.component';
 import { LoginadminComponent } from './components/admin/loginadmin/loginadmin.component';
 import { GetAllProvidersComponent } from './components/healthcare-provider/get-all-providers/get-all-providers.component';
@@ -40,18 +34,13 @@ import { PatientPanelComponent } from './components/patients/patient-panel/patie
 import { CompanyPanelComponent } from './components/insurance-company/company-panel/company-panel.component';
 import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.component';
 import { ProviderPanelComponent } from './components/healthcare-provider/provider-panel/provider-panel.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HealthcareProviderComponent,
     HomepageComponent,
-    InsuranceClaimsComponent,
-    InsuranceCompanyComponent,
-    InsurancePlansComponent,
-    InvoiceDetailsComponent,
-    PatientsComponent,
     AddadminComponent,
     LoginadminComponent,
     GetAllProvidersComponent,
@@ -84,6 +73,7 @@ import { ProviderPanelComponent } from './components/healthcare-provider/provide
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
