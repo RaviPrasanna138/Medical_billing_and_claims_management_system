@@ -89,6 +89,7 @@ public class PatientsRestController {
 		service.deletPatients(patientId);
 		return "Successfully Deleted patient with id: " + patientId;
 	}
+	
 	@PostMapping("/authenticate")
 	public String authenticateAndGetTokent(@RequestBody AuthRequest authRequest) {
 
@@ -96,6 +97,7 @@ public class PatientsRestController {
 		String token = null;
 		if (authentication.isAuthenticated()) {
 			token = jwtService.generateToken(authRequest.getUserName());
+			logger.info("Token:"+ token);
 		} else {
 			throw new UsernameNotFoundException("UserName or Password in Invalid / Invalid Request");
 		}
