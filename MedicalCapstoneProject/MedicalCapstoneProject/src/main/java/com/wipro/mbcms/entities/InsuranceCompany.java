@@ -22,7 +22,7 @@ public class InsuranceCompany {
 	private int companyId;
 	@NotNull
 	private String companyName;
-	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
+//	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
 	private String companyPassword;
 	@Email
 	private String companyEmail;

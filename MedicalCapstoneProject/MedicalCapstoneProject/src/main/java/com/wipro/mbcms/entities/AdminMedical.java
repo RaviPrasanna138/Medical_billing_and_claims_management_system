@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Pattern;
 
 @Entity
 public class AdminMedical {
@@ -12,7 +11,7 @@ public class AdminMedical {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int adminId;
 	private String adminName;
-	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
+//	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
 	private String adminPassword;
 	private final String role = "ADMIN";
 

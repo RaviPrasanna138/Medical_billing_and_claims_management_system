@@ -20,7 +20,7 @@ public class Patients {
 	private String patientName;
 	@Email
 	private String patientEmail;
-	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
+//	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
 	private String patientPassword;
 	private String patientDateOfBirth;
 	@NotBlank

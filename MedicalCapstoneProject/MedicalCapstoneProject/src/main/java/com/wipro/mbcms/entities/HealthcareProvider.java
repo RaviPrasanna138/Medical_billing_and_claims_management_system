@@ -17,7 +17,7 @@ public class HealthcareProvider {
 	private int providerId;
 	@NotBlank
 	private String providerName;
-	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
+//	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Letter must be 5")
 	private String providerPassword;
 	@Email
 	private String providerEmail;

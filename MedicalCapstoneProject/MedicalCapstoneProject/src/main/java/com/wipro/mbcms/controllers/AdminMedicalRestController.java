@@ -2,6 +2,8 @@ package com.wipro.mbcms.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -53,6 +55,8 @@ public class AdminMedicalRestController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
+	Logger logger = LoggerFactory.getLogger(AdminMedicalRestController.class);
 
 	@PostMapping("/add")
 	public AdminMedical addAdmin(@RequestBody AdminMedicalDTO adminDto) {
@@ -96,6 +100,7 @@ public class AdminMedicalRestController {
 		String token = null;
 		if (authentication.isAuthenticated()) {
 			token = jwtService.generateToken(authRequest.getUserName());
+			logger.info("Token:"+ token);
 		} else {
 			throw new UsernameNotFoundException("UserName or Password in Invalid / Invalid Request");
 		}

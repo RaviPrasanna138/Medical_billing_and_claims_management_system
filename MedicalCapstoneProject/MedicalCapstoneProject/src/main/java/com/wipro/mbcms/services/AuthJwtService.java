@@ -18,12 +18,12 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class AuthJwtService {
 
-	public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+	public static final String SECRET = "cG9zaXRpb25iYXNlYmFsbHNwcmVhZG51bWVyYWxjdXJpb3VzaHVudGFtbGVhdmluZ20=";
 
 	public String createToken(Map<String, Object> claims, String username) {
 
 		return Jwts.builder().setClaims(claims).setSubject(username).setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 30))
 				.signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
 
 	}
