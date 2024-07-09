@@ -1,0 +1,16 @@
+<form (ngSubmit)="addProvider()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="provider.providerName" name="providerName" required>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="provider.providerPassword" name="providerPassword" required>
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="provider.providerEmail" name="providerEmail" required>
+  
+    <label for="speciality">Speciality:</label>
+    <input type="text" id="speciality" [(ngModel)]="provider.providerSpeciality" name="providerSpeciality" required>
+  
+    <button type="submit">Add Provider</button>
+  </form>
+  
