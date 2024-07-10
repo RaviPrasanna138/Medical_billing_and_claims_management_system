@@ -24,12 +24,12 @@ export class RegisterPatientsComponent implements OnInit {
       patientName:['',Validators.required],
       patientEmail:['',[Validators.required,Validators.email]],
       patientPassword:['',[Validators.required,Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")]],
-      patientDOB:['',Validators.required],
+      patientDateOfBirth:['',Validators.required],
       patientGender:['',Validators.required],
-      patientContact:['',Validators.required],
+      patientMobileNumber:['',Validators.required],
       patientAddress:['',Validators.required],
-      patientDisease:['',Validators.required]
-
+      patientSymptoms:['',Validators.required],
+      patientTreatment:['',Validators.required]
      
 
     })

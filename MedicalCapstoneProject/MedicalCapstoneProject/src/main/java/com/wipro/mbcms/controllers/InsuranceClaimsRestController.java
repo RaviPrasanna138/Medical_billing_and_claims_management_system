@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,8 @@ import com.wipro.mbcms.entities.InsuranceClaims;
 import com.wipro.mbcms.services.IInsuranceClaimsService;
 
 @RestController
-@RequestMapping("/api/InsuranceClaims")
+@RequestMapping("/api/insuranceclaims")
+@CrossOrigin("http://localhost:4200")
 public class InsuranceClaimsRestController {
 
 	@Autowired
@@ -44,7 +46,7 @@ public class InsuranceClaimsRestController {
 		return claimService.updateClaims(claimDTO, claimId);
 	}
 
-	@GetMapping("/getClaims/{claimId}")
+	@GetMapping("/getclaims/{claimId}")
 	@PreAuthorize("hasAuthority('COMPANY')")
 	public InsuranceClaims getClaimById(@PathVariable Long claimId) {
 		return claimService.getById(claimId);

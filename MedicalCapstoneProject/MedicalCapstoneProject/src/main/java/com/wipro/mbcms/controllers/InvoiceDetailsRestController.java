@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import com.wipro.mbcms.services.IInvoiceDetailsService;
 
 @RestController
 @RequestMapping("/api/invoicedetails")
+@CrossOrigin("http://localhost:4200")
 public class InvoiceDetailsRestController {
 	
 	@Autowired
@@ -28,19 +30,19 @@ public class InvoiceDetailsRestController {
 		return service.addInvoice(detailsDto, patientId);
 	}
 	
-	@GetMapping("/getAllInvoices")
+	@GetMapping("/getallinvoices")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<InvoiceDetails> getAllInvoices(){
 		return service.getAllInvoices();
 	}
 	
-	@GetMapping("/getInvoiceById/{invoiceId}")
+	@GetMapping("/getinvoicebyid/{invoiceId}")
 	@PreAuthorize("hasAuthority('PATIENTS')")
 	public InvoiceDetails getInvoiceById(@PathVariable int invoiceId) {
 		return service.getInvoiceById(invoiceId);
 	}
 	
-	@GetMapping("/getAllByPatientName/{patientName}")
+	@GetMapping("/getallbypatientname/{patientName}")
 	@PreAuthorize("hasAuthority('PATIENTS')")
 	public List<InvoiceDetails> getAllByPatientName(@PathVariable String patientName){
 		return service.getAllByPatientName(patientName);

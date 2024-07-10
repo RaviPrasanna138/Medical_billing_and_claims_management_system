@@ -11,8 +11,8 @@ export class JwtProviderService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<string> {
-    const requestBody = { username, password };
+  login(userName: string, password: string): Observable<string> {
+    const requestBody = { userName, password };
     return this.http.post<string>(this.providerURL + 'authenticate', requestBody,{responseType: 'text' as 'json'});
   }
   // logout(): void {

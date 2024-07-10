@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,6 +34,7 @@ import com.wipro.mbcms.services.IPatientsService;
 
 @RestController
 @RequestMapping("/api/admin")
+@CrossOrigin("http://localhost:4200")
 public class AdminMedicalRestController {
 
 	@Autowired
@@ -69,25 +71,25 @@ public class AdminMedicalRestController {
 		return adminService.updateAdmin(adminDto);
 	}
 
-	@GetMapping("/getAllPatients")
+	@GetMapping("/getallpatients")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<Patients> getAllPatients() {
 		return patientService.getAllPatients();
 	}
 
-	@GetMapping("/getAllProviders")
+	@GetMapping("/getallproviders")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<HealthcareProvider> getAllProviders() {
 		return providerService.getAllProviders();
 	}
 
-	@GetMapping("/getAllInsuranecClaims")
+	@GetMapping("/getallinsuranecclaims")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<InsuranceClaims> getAllInsuranceClaims() {
 		return claimService.getAllInsuranceClaims();
 	}
 
-	@GetMapping("/getAllInsurancePlans")
+	@GetMapping("/getallinsuranceplans")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<InsurancePlans> getAllPlans() {
 		return planService.getAllPlans();

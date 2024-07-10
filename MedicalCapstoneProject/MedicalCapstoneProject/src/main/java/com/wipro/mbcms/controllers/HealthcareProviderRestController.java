@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import com.wipro.mbcms.services.IHealthcareProviderService;
 
 @RestController
 @RequestMapping("/api/healthcareprovider")
+@CrossOrigin("http://localhost:4200")
 public class HealthcareProviderRestController {
 	Logger logger = LoggerFactory.getLogger(HealthcareProviderRestController.class);
 
@@ -51,19 +53,19 @@ public class HealthcareProviderRestController {
 		return service.updateProvider(providerDto);
 	}
 
-	@GetMapping("/getAll")
+	@GetMapping("/getall")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<HealthcareProvider> getAllProviders() {
 		return service.getAllProviders();
 	}
 
-	@GetMapping("/getById/{providerId}")
+	@GetMapping("/getbyid/{providerId}")
 	@PreAuthorize("hasAuthority('PROVIDER')")
 	public HealthcareProvider getProviderById(@PathVariable int providerId) {
 		return service.getProviderById(providerId);
 	}
 
-	@DeleteMapping("/deleteById/{providerId}")
+	@DeleteMapping("/deletebyid/{providerId}")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteProviderById(@PathVariable int providerId) {
 		service.deleteProviderById(providerId);

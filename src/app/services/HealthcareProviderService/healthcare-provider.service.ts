@@ -18,6 +18,7 @@ export class HealthcareProviderService {
 
   registerHealthcareProvider(provider:HealthcareProvider):Observable<HealthcareProvider>
   {
+    // console.log(provider);
     return this.http.post<HealthcareProvider>(this.providerURL+"/add",provider);
   }
 

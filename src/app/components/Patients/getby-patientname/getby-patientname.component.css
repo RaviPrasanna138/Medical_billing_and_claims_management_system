@@ -14,6 +14,6 @@ table {
     margin-top: 520px;
   }
   #zebra-h tr:nth-child(even) {
-    color: darkslategrey;
-    background-color: lightblue;
+    color: #fff;
+    background-color: #000000;
 }

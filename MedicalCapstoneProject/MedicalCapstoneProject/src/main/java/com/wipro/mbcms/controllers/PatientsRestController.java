@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import com.wipro.mbcms.services.IPatientsService;
 
 @RestController
 @RequestMapping("/api/patients")
+@CrossOrigin("http://localhost:4200")
 public class PatientsRestController {
 
 	Logger logger = LoggerFactory.getLogger(PatientsRestController.class);
@@ -45,13 +47,13 @@ public class PatientsRestController {
 	private AuthenticationManager authenticationManager;
 	
 	
-	@GetMapping("/get/allPatients")
+	@GetMapping("/get/allpatients")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<Patients> getAllPatients() {
 		return service.getAllPatients();
 	}
 
-	@PostMapping("/addPatients")
+	@PostMapping("/addpatients")
 	public Patients insertPatients(@RequestBody PatientsDTO patientDTO) {
 
 		Patients patient = service.addPatients(patientDTO);
@@ -63,7 +65,7 @@ public class PatientsRestController {
 		return patient;
 	}
 
-	@PutMapping("/updatePatient")
+	@PutMapping("/updatepatient")
 	@PreAuthorize("hasAuthority('PATIENT')")
 	public Patients updatePatient(@RequestBody PatientsDTO patientDTO) {
 		return service.updatePatients(patientDTO);

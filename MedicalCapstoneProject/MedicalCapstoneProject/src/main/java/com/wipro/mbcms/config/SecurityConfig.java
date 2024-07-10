@@ -40,13 +40,13 @@ public class SecurityConfig {
     	
     		return http.csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(requests -> requests.requestMatchers("/swagger-ui/**", "/swagger-resources/**", "/api",
-                            "/api/patients/authenticate", "/api/patients/addPatients", "/api/patients/get/allPatients", "/api/patients/updatePatient", "/api/patients/getbyname/{patientName}", "/api/patients/delete/patient/{patientId}",
-                            "/api/healthcareprovider/authenticate", "/api/healthcareprovider/add", "/api/healthcareprovider/update" ,"/api/healthcareprovider/getAll", "/api/healthcareprovider/getById/{providerId}", "/api/healthcareprovider/deleteById/{providerId}",
-                            "/api/insurancecompany/authenticate", "/api/insurancecompany/add/company", "/api/insurancecompany/update/company/{companyId}", "/api/insurancecompany/delete/companyById/{companyId}", "/api/insurancecompany/getbycompanyname/{companyName}", "/api/insurancecompany/getallcompaniesdata",
+                            "/api/patients/authenticate", "/api/patients/addpatients", "/api/patients/get/allpatients", "/api/patients/updatePatient", "/api/patients/getbyname/{patientName}", "/api/patients/delete/patient/{patientId}",
+                            "/api/healthcareprovider/authenticate", "/api/healthcareprovider/add", "/api/healthcareprovider/update" ,"/api/healthcareprovider/getall", "/api/healthcareprovider/getbyid/{providerId}", "/api/healthcareprovider/deletebyid/{providerId}",
+                            "/api/insurancecompany/authenticate", "/api/insurancecompany/add/company", "/api/insurancecompany/update/company/{companyId}", "/api/insurancecompany/delete/companybyid/{companyId}", "/api/insurancecompany/getbycompanyname/{companyName}", "/api/insurancecompany/getallcompaniesdata",
                             "/api/admin/authenticate", "/api/admin/add", "/apiadmin/getAllPatients", "/api/admin/getAllInsuranecClaims", "/api/admin/getAllInsurancePlans",
-                            "/api/healthcareprovider/deleteById/{providerId}",
-                            "/api/InsuranceClaims/getallclaims").permitAll())
-                    .authorizeHttpRequests(requests -> requests.requestMatchers("/api/admin/**", "/api/healthcareprovider/**", "/api/InsuranceClaims/**", "/api/insurancecompany/**", "/api/plans/**", "/api/invoicedetails/**", "/api/patients/**")
+                            "/api/healthcareprovider/deletebyid/{providerId}",
+                            "/api/insuranceclaims/getallclaims").permitAll())
+                    .authorizeHttpRequests(requests -> requests.requestMatchers("/api/admin/**", "/api/healthcareprovider/**", "/api/insuranceclaims/**", "/api/insurancecompany/**", "/api/plans/**", "/api/invoicedetails/**", "/api/patients/**")
                             .authenticated())   //.formLogin().and().build();
                     .sessionManagement(management -> management
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

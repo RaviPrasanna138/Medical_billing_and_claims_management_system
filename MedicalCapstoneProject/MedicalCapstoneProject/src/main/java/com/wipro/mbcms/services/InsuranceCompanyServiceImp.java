@@ -59,11 +59,17 @@ public class InsuranceCompanyServiceImp implements IInsuranceCompanyService {
 	}
 
 	@Override
-	public InsuranceCompany getCompanyByName(String companyName) {
+	public InsuranceCompanyDTO getCompanyByName(String companyName) {
 		InsuranceCompany company = comapanyRepo.findByCompanyName(companyName)
 				.orElseThrow(() -> new CompanyNotRegisteredException(HttpStatus.SERVICE_UNAVAILABLE,
 						"Company With name : " + companyName + " has not registered with us !!"));
-		return company;
+		InsuranceCompanyDTO companyDto = new InsuranceCompanyDTO();
+		companyDto.setCompanyId(company.getCompanyId());
+		companyDto.setCompanyName(company.getCompanyName());
+		companyDto.setCompanyContact(company.getCompanyContact());
+		companyDto.setCompanyEmail(company.getCompanyEmail());
+		companyDto.setCompanyPassword(encoder.encode(company.getCompanyPassword()));
+		return companyDto;
 	}
 
 }

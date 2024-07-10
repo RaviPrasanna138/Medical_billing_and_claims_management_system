@@ -1,6 +1,6 @@
 export class AuthRequest{
 
-    name:string = '';
+    userName:string = '';
     password:string = '';
 
 

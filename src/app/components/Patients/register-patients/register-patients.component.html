@@ -87,11 +87,11 @@
 
                                     <div class="form-outline md-4">
                                         <label class="form-label" for="contact">Enter Contact Number</label>
-                                        <input type="tel" id="contact" class="form-control " placeholder="Ex 9830000014"
-                                            formControlName="patientContact"
-                                            [ngClass]="{'is-invalid':submitted && f['patientContact'].errors}">
-                                        <div *ngIf="submitted && f['patientContact'].errors" class="invalid-feedback">
-                                            <div *ngIf=" f['patientContact'].errors['required']">Enter
+                                        <input type="tel" id="contact" class="form-control " placeholder="Ex 900000009"
+                                            formControlName="patientMobileNumber"
+                                            [ngClass]="{'is-invalid':submitted && f['patientMobileNumber'].errors}">
+                                        <div *ngIf="submitted && f['patientMobileNumber'].errors" class="invalid-feedback">
+                                            <div *ngIf=" f['patientMobileNumber'].errors['required']">Enter
                                                 Contact Number
                                                 Properly</div>
 
@@ -102,7 +102,7 @@
                                     <div class="form-outline md-4">
                                         <label class="form-label" for="address">Enter Address</label>
                                         <input type="text" id="address" class="form-control "
-                                            placeholder="Enter your Contact Number" formControlName="patientAddress"
+                                            placeholder="Enter your Address" formControlName="patientAddress"
                                             [ngClass]="{'is-invalid':submitted && f['patientAddress'].errors}">
                                         <div *ngIf="submitted && f['patientAddress'].errors" class="invalid-feedback">
                                             <div *ngIf=" f['patientAddress'].errors['required']">Enter
@@ -126,8 +126,8 @@
                                         </div>
                                     </div>
                                     <div class="form-outline md-4">
-                                        <label class="form-label" for="disease">Enter Patient Treatment</label>
-                                        <input type="text" id="disease" class="form-control "
+                                        <label class="form-label" for="treatment">Enter Patient Treatment</label>
+                                        <input type="text" id="treatment" class="form-control "
                                             placeholder="Enter your Medical Treatment" formControlName="patientTreatment"
                                             [ngClass]="{'is-invalid':submitted && f['patientTreatment'].errors}">
                                         <div *ngIf="submitted && f['patientTreatment'].errors" class="invalid-feedback">
@@ -139,10 +139,6 @@
                                     </div>
 
                                     <br>
-
-
-
-
 
                                     <button type="submit" class="btn btn-warning col-lg-2"
                                         [disabled]="registerPatientFormsGroup.invalid">Register</button>

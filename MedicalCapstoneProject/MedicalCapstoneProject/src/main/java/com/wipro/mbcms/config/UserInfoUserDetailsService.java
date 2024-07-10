@@ -48,6 +48,7 @@ public class UserInfoUserDetailsService implements UserDetailsService {
                     .orElseThrow(() -> new UsernameNotFoundException("Provider not found " + username));
         }
         if(company.isPresent()) {
+        	System.out.println("company in user");
         	return company.map(CompanyInfoCompanyDetails::new) 
                     .orElseThrow(() -> new UsernameNotFoundException("Company not found " + username));
         }

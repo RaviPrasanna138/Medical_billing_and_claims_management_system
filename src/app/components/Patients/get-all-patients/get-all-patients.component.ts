@@ -18,8 +18,7 @@ export class GetAllPatientsComponent{
       this.patientList = data;
     })
   }
-
- 
+   
 
   deletePatients(patientId:number)
   {

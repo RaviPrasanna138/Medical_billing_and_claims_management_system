@@ -1,7 +1,7 @@
-body {
+/* body {
     
     background-image: url(../../../../assets/companydash.jpg);
-}
+} */
 
 @media (min-width: 991.98px) {
     main {
@@ -19,7 +19,6 @@ nav.close li a .link-name{
     pointer-events: auto;
 }
 .element-with-background {
-    background-image: url(../../../../assets/companyheadpic.jpg);
     background-size: cover; /* You can use other values like 'contain' based on your requirements */
     height: 60px; /* Set your desired height */
     width: 1260px; /* Set your desired width */

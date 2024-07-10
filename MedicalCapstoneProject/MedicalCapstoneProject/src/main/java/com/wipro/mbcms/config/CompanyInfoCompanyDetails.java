@@ -21,8 +21,7 @@ public class CompanyInfoCompanyDetails implements UserDetails {
 	public CompanyInfoCompanyDetails(InsuranceCompany company){
 		companyName=company.getCompanyName();
 		companyPassword=company.getCompanyPassword();
-        authorities= Arrays.stream(company.getRole().split(","))
-                .map(SimpleGrantedAuthority::new)
+        authorities= Arrays.stream(company.getRole().split(",")).map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
 

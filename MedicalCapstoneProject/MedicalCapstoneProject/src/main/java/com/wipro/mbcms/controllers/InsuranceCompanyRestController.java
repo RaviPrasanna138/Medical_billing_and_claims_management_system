@@ -2,12 +2,15 @@ package com.wipro.mbcms.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +28,7 @@ import com.wipro.mbcms.services.IInsuranceCompanyService;
 
 @RestController
 @RequestMapping("/api/insurancecompany")
+@CrossOrigin("http://localhost:4200")
 public class InsuranceCompanyRestController {
 	@Autowired
 	private IInsuranceCompanyService service;
@@ -34,6 +38,8 @@ public class InsuranceCompanyRestController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
+	Logger logger = LoggerFactory.getLogger(InsuranceCompanyRestController.class);
 	
 	@PostMapping("/add/company")
 	public InsuranceCompany addNewCompany(@RequestBody InsuranceCompanyDTO companyDTO) {
@@ -46,7 +52,7 @@ public class InsuranceCompanyRestController {
 		return service.updateCompany(companyDTO);
 	}
 
-	@DeleteMapping("/delete/companyById/{companyId}")
+	@DeleteMapping("/delete/companybyid/{companyId}")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteExistingCompany(@PathVariable int companyId) {
 		service.deleteCompanyById(companyId);
@@ -55,7 +61,7 @@ public class InsuranceCompanyRestController {
 	
 	@GetMapping("/getbycompanyname/{companyName}")
 	@PreAuthorize("hasAuthority('COMPANY')")
-	public InsuranceCompany getCompanyByName(@PathVariable String companyName) {
+	public InsuranceCompanyDTO getCompanyByName(@PathVariable String companyName) {
 		return service.getCompanyByName(companyName);
 
 	}
@@ -74,6 +80,7 @@ public class InsuranceCompanyRestController {
 		String token = null;
 		if (authentication.isAuthenticated()) {
 			token = jwtService.generateToken(authRequest.getUserName());
+			logger.info("Token:"+ token);
 		} else {
 			throw new UsernameNotFoundException("UserName or Password in Invalid / Invalid Request");
 		}
